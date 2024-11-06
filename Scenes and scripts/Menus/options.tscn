@@ -1,0 +1,119 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvs5wpdbcpsel"]
+
+[ext_resource type="Script" path="res://Scenes and scripts/Menus/options.gd" id="1_ns6s4"]
+[ext_resource type="FontFile" uid="uid://bsgngl7m1e6g7" path="res://assets/fonts/PixelOperator8.ttf" id="2_damju"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_necj8"]
+bg_color = Color(0.313726, 0.388235, 0.764706, 0.686275)
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_st51v"]
+bg_color = Color(0.313726, 0.388235, 0.764706, 0.686275)
+
+[node name="Options" type="CanvasLayer"]
+process_mode = 2
+layer = 3
+script = ExtResource("1_ns6s4")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_necj8")
+
+[node name="OptionButtonContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainer"]
+process_mode = 2
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 16
+
+[node name="SaveOptionsButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/OptionButtonContainer"]
+process_mode = 2
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_damju")
+theme_override_font_sizes/font_size = 32
+text = "Save/load"
+
+[node name="SoundOptionsButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/OptionButtonContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_damju")
+theme_override_font_sizes/font_size = 32
+text = "Sound"
+
+[node name="Button3" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/OptionButtonContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_damju")
+theme_override_font_sizes/font_size = 32
+text = "Display"
+
+[node name="Button4" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/OptionButtonContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_damju")
+theme_override_font_sizes/font_size = 32
+text = "Text"
+
+[node name="Button5" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/OptionButtonContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_damju")
+theme_override_font_sizes/font_size = 32
+text = "General"
+
+[node name="Button6" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/OptionButtonContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_damju")
+theme_override_font_sizes/font_size = 32
+text = "Misc"
+
+[node name="ReturnButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/OptionButtonContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_damju")
+theme_override_font_sizes/font_size = 32
+text = "Return"
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_st51v")
+
+[node name="OptionsContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.607843)
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/OptionButtonContainer/SaveOptionsButton" to="." method="_on_save_options_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/OptionButtonContainer/SoundOptionsButton" to="." method="_on_sound_options_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/OptionButtonContainer/ReturnButton" to="." method="_on_return_button_pressed"]

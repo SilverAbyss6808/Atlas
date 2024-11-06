@@ -1,0 +1,112 @@
+[gd_scene load_steps=12 format=3 uid="uid://cvdw40aceqfun"]
+
+[ext_resource type="Script" path="res://Scenes and scripts/global/global scripts/yellow_ball.gd" id="1_anu6x"]
+[ext_resource type="Texture2D" uid="uid://ymrhvjkojw3b" path="res://assets/sprites/yellow_ball.png" id="2_syt4y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_siv8p"]
+atlas = ExtResource("2_syt4y")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prfrw"]
+atlas = ExtResource("2_syt4y")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmle4"]
+atlas = ExtResource("2_syt4y")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3pb8"]
+atlas = ExtResource("2_syt4y")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_stym2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_siv8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prfrw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmle4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3pb8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gp5j6"]
+radius = 5.09902
+
+[sub_resource type="Animation" id="Animation_dsatq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_4jdwi"]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hfvha"]
+_data = {
+"RESET": SubResource("Animation_dsatq"),
+"die": SubResource("Animation_4jdwi")
+}
+
+[node name="yellowball" type="Area2D"]
+script = ExtResource("1_anu6x")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.584163, 0.584163)
+sprite_frames = SubResource("SpriteFrames_stym2")
+autoplay = "default"
+frame_progress = 0.00370858
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gp5j6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hfvha")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
