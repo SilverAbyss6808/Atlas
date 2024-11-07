@@ -458,6 +458,7 @@ hue_variation_min = -2.23517e-08
 hue_variation_max = 0.17
 
 [node name="player" type="CharacterBody2D" groups=["Persist"]]
+collision_layer = 17
 script = ExtResource("1_3a1r7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

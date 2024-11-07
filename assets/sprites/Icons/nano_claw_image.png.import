@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ds1dd5ywgsaxc"
-path="res://.godot/imported/cy_claw_image.png-6de4b338bc3840b254abd3ac853a0735.ctex"
+uid="uid://22dj3rqsota8"
+path="res://.godot/imported/nano_claw_image.png-4cb41e728841f021c819a58e298d3874.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Icons/cy_claw_image.png"
-dest_files=["res://.godot/imported/cy_claw_image.png-6de4b338bc3840b254abd3ac853a0735.ctex"]
+source_file="res://assets/sprites/Icons/nano_claw_image.png"
+dest_files=["res://.godot/imported/nano_claw_image.png-4cb41e728841f021c819a58e298d3874.ctex"]
 
 [params]
 

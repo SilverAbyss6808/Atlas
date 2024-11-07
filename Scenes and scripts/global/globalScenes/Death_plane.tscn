@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scenes and scripts/global/global scripts/death_plane.gd" id="1_8cys7"]
 
 [node name="death_plane" type="Area2D"]
+collision_mask = 16
 script = ExtResource("1_8cys7")
 
 [node name="Timer" type="Timer" parent="."]

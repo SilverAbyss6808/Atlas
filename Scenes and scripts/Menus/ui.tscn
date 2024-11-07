@@ -1,9 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://fty67buyymar"]
+[gd_scene load_steps=10 format=3 uid="uid://fty67buyymar"]
 
 [ext_resource type="Script" path="res://Scenes and scripts/Menus/ui.gd" id="1_bk8xt"]
 [ext_resource type="FontFile" uid="uid://bsgngl7m1e6g7" path="res://assets/fonts/PixelOperator8.ttf" id="1_x22nq"]
+[ext_resource type="Texture2D" uid="uid://b3bltxskl4due" path="res://assets/sprites/Icons/tach_boost_image.png" id="3_iayfq"]
+[ext_resource type="StyleBox" uid="uid://dvum3slah5fri" path="res://Scenes and scripts/Menus/progressbarBackgroundStyle.tres" id="3_mmw8t"]
+[ext_resource type="LabelSettings" uid="uid://cfr4wc2xjxx36" path="res://abilityLabelSettings.tres" id="4_3ye62"]
+[ext_resource type="StyleBox" uid="uid://hjxmstbri8fs" path="res://Scenes and scripts/Menus/progressbarFillStyle.tres" id="4_14osq"]
+[ext_resource type="Texture2D" uid="uid://22dj3rqsota8" path="res://assets/sprites/Icons/nano_claw_image.png" id="5_ogkp5"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[sub_resource type="LabelSettings" id="LabelSettings_p84rj"]
+font = ExtResource("1_x22nq")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxfhp"]
+bg_color = Color(6.16074e-06, 0.650304, 0.892019, 1)
+border_color = Color(0, 0, 0, 1)
+
+[node name="UI" type="CanvasLayer"]
 script = ExtResource("1_bk8xt")
 
 [node name="Control" type="Control" parent="."]
@@ -21,10 +33,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.00147, 1)
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
+theme_override_constants/margin_bottom = 6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
 layout_mode = 2
@@ -42,3 +55,103 @@ text = "Health: 100%"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_x22nq")
 text = "Tachyon Level: 100%"
+
+[node name="PowerLabel" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="CooldownContainer" type="VBoxContainer" parent="Control/MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/separation = 8
+
+[node name="Slot1CooldownBar" type="ProgressBar" parent="Control/MarginContainer/MarginContainer/CooldownContainer"]
+layout_mode = 2
+theme_override_styles/background = ExtResource("3_mmw8t")
+theme_override_styles/fill = ExtResource("4_14osq")
+max_value = 10.0
+fill_mode = 1
+show_percentage = false
+
+[node name="Slot1CooldownLabel" type="Label" parent="Control/MarginContainer/MarginContainer/CooldownContainer"]
+layout_mode = 2
+text = "Slot 1: 10 sec"
+label_settings = SubResource("LabelSettings_p84rj")
+
+[node name="Slot2CooldownBar" type="ProgressBar" parent="Control/MarginContainer/MarginContainer/CooldownContainer"]
+layout_mode = 2
+theme_override_styles/background = ExtResource("3_mmw8t")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xxfhp")
+max_value = 10.0
+fill_mode = 1
+show_percentage = false
+
+[node name="Slot2CooldownLabel" type="Label" parent="Control/MarginContainer/MarginContainer/CooldownContainer"]
+layout_mode = 2
+text = "Slot 2: 10 sec"
+label_settings = SubResource("LabelSettings_p84rj")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/MarginContainer"]
+custom_minimum_size = Vector2(208, 120)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Ability container" type="HBoxContainer" parent="Control/MarginContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Slot1Container" type="VBoxContainer" parent="Control/MarginContainer/MarginContainer2/Ability container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Ability1Bar" type="ProgressBar" parent="Control/MarginContainer/MarginContainer2/Ability container/Slot1Container"]
+layout_mode = 2
+theme_override_styles/background = ExtResource("3_mmw8t")
+theme_override_styles/fill = ExtResource("4_14osq")
+max_value = 5.0
+show_percentage = false
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/MarginContainer2/Ability container/Slot1Container"]
+custom_minimum_size = Vector2(80, 90)
+layout_mode = 2
+texture = ExtResource("3_iayfq")
+
+[node name="Ability1Label" type="Label" parent="Control/MarginContainer/MarginContainer2/Ability container/Slot1Container"]
+custom_minimum_size = Vector2(40, 10)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_x22nq")
+theme_override_font_sizes/font_size = 8
+text = "Tach Boost"
+label_settings = ExtResource("4_3ye62")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Slot2Container" type="VBoxContainer" parent="Control/MarginContainer/MarginContainer2/Ability container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Ability2Bar" type="ProgressBar" parent="Control/MarginContainer/MarginContainer2/Ability container/Slot2Container"]
+layout_mode = 2
+theme_override_styles/background = ExtResource("3_mmw8t")
+theme_override_styles/fill = ExtResource("4_14osq")
+max_value = 0.5
+show_percentage = false
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/MarginContainer2/Ability container/Slot2Container"]
+custom_minimum_size = Vector2(80, 90)
+layout_mode = 2
+texture = ExtResource("5_ogkp5")
+
+[node name="Ability2Label" type="Label" parent="Control/MarginContainer/MarginContainer2/Ability container/Slot2Container"]
+custom_minimum_size = Vector2(40, 10)
+layout_mode = 2
+text = "Nano Claw"
+label_settings = ExtResource("4_3ye62")
+horizontal_alignment = 1
+autowrap_mode = 2
