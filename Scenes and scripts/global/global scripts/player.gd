@@ -1,15 +1,24 @@
 extends CharacterBody2D
 
 
-const SPEED = 130.0
-const JUMP_VELOCITY = -300.0
+
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var ui: UI = $playerCam/ui
 @onready var sit_timer: Timer = $SitTimer
 @onready var lay_timer: Timer = $LayTimer
+@onready var speed_lines: GPUParticles2D = $Abilities/tach_boost/SpeedLines
+
+var jump_velocity = -300.0
+var speed = 130
+
 var health = 100
 var tach = 100
 var power = 100
+var abSlot1 = "tach_boost"
+var abSlot2 = "nano_claw"
+
+
 func save():
 	var save_dict = {
 		"filename" : get_scene_file_path(),
@@ -34,14 +43,18 @@ func _physics_process(delta: float) -> void:
 		sit_timer.start()
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y = jump_velocity
 
 	
 	var direction := Input.get_axis("left", "right")
 	
 	if direction > 0:
+		if speed_lines.emitting == true:
+			speed_lines.process_material.set("direction", Vector3(-1,0,0))
 		animated_sprite.flip_h=false
 	elif direction < 0:
+		if speed_lines.emitting == true:
+			speed_lines.process_material.set("direction", Vector3(1,0,0))
 		animated_sprite.flip_h=true
 	
 	if is_on_floor():
@@ -52,9 +65,9 @@ func _physics_process(delta: float) -> void:
 	else: 
 		animated_sprite.play("jump")
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
 

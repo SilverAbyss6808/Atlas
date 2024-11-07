@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://bqlk71kugsjfs"]
+[gd_scene load_steps=69 format=3 uid="uid://bqlk71kugsjfs"]
 
 [ext_resource type="Script" path="res://Scenes and scripts/global/global scripts/player.gd" id="1_3a1r7"]
 [ext_resource type="Texture2D" uid="uid://bjhl0w0hh3see" path="res://assets/sprites/atlas_idle.png" id="1_n1xc8"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dhb24ht8wsunc" path="res://assets/sprites/sit_lay_trans.png" id="3_sw4qx"]
 [ext_resource type="Texture2D" uid="uid://dhsfe7yuu4qb8" path="res://assets/sprites/stand_sit_trans.png" id="4_3r8ln"]
 [ext_resource type="PackedScene" uid="uid://fty67buyymar" path="res://Scenes and scripts/Menus/ui.tscn" id="6_epy51"]
+[ext_resource type="Texture2D" uid="uid://caklhguhigutr" path="res://assets/sprites/speed_particle.png" id="7_jphhv"]
+[ext_resource type="Script" path="res://Scenes and scripts/global/global scripts/abilities.gd" id="7_vscgh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jaigp"]
 atlas = ExtResource("1_n1xc8")
@@ -437,18 +439,36 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_k83du"]
 radius = 7.0
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8bhbd"]
+lifetime_randomness = 0.54
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -16, 0)
+emission_shape_scale = Vector3(1, -0.5, 1)
+emission_shape = 1
+emission_sphere_radius = 15.59
+direction = Vector3(-1, 0, 0)
+spread = 0.0
+initial_velocity_min = 96.64
+initial_velocity_max = 184.88
+gravity = Vector3(0, 98, 0)
+scale_min = 0.0
+scale_max = 0.5
+color = Color(0.921569, 0.917647, 0.0156863, 1)
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.17
+
 [node name="player" type="CharacterBody2D" groups=["Persist"]]
 script = ExtResource("1_3a1r7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fr4ar")
-animation = &"stand_to_sit"
+animation = &"run"
 autoplay = "idle"
-frame = 15
-frame_progress = 1.0
+frame_progress = 0.740695
 offset = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_k83du")
 
@@ -467,5 +487,29 @@ position_smoothing_enabled = true
 
 [node name="ui" parent="playerCam" instance=ExtResource("6_epy51")]
 
+[node name="Abilities" type="Node" parent="."]
+script = ExtResource("7_vscgh")
+
+[node name="tach_boost" type="Node" parent="Abilities"]
+
+[node name="SpeedLines" type="GPUParticles2D" parent="Abilities/tach_boost"]
+emitting = false
+amount = 11
+process_material = SubResource("ParticleProcessMaterial_8bhbd")
+texture = ExtResource("7_jphhv")
+
+[node name="tach_boost_timer" type="Timer" parent="Abilities/tach_boost"]
+wait_time = 5.0
+one_shot = true
+
+[node name="slot_1_cooldown" type="Timer" parent="Abilities"]
+wait_time = 10.0
+one_shot = true
+
+[node name="slot_2_cooldown" type="Timer" parent="Abilities"]
+wait_time = 10.0
+one_shot = true
+
 [connection signal="timeout" from="SitTimer" to="." method="_on_sit_timer_timeout"]
 [connection signal="timeout" from="LayTimer" to="." method="_on_lay_timer_timeout"]
+[connection signal="timeout" from="Abilities/tach_boost/tach_boost_timer" to="Abilities" method="_on_tach_boost_timer_timeout"]
