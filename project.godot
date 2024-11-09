@@ -73,7 +73,10 @@ slot2={
 
 [layer_names]
 
+2d_physics/layer_1="Floor"
 2d_physics/layer_5="player"
+2d_physics/layer_6="enemies"
+2d_physics/layer_7="damage_colliders"
 
 [rendering]
 

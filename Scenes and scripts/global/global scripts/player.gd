@@ -7,7 +7,9 @@ extends CharacterBody2D
 @onready var ui: UI = $playerCam/ui
 @onready var sit_timer: Timer = $SitTimer
 @onready var lay_timer: Timer = $LayTimer
-@onready var speed_lines: GPUParticles2D = $Abilities/tach_boost/SpeedLines
+@onready var abilities: Node = $Abilities
+@onready var nano_claw_timer: Timer = $Abilities/nano_claw/nano_claw_timer
+@onready var ability_animations: AnimationPlayer = $Abilities/AbilityAnimations
 
 var jump_velocity = -300.0
 var speed = 130
@@ -27,15 +29,17 @@ func save():
 		"pos_y" : position.y,
 		"health": health,
 		"tach" :  tach,
+		"power": power,
 		"Level" : Global.currentLevel
 	}
 	return save_dict
 func _ready() -> void:
-	ui.reload_ui(health, tach)
+	ui.reload_ui(health, tach, power)
 func _physics_process(delta: float) -> void:
-	ui.reload_ui(health, tach)
-	#if ui.health == 0:
-		#get_tree().reload_current_scene()
+	ui.reload_ui(health, tach, power)
+	if ui.health <= 0:
+		print("dead")
+		get_tree().reload_current_scene()
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -49,12 +53,10 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("left", "right")
 	
 	if direction > 0:
-		if speed_lines.emitting == true:
-			speed_lines.process_material.set("direction", Vector3(-1,0,0))
+		abilities.player_direction = 1
 		animated_sprite.flip_h=false
 	elif direction < 0:
-		if speed_lines.emitting == true:
-			speed_lines.process_material.set("direction", Vector3(1,0,0))
+		abilities.player_direction = -1
 		animated_sprite.flip_h=true
 	
 	if is_on_floor():
@@ -73,14 +75,16 @@ func _physics_process(delta: float) -> void:
 
 
 func blue_ball():
-	health += -10
-	ui.update_health(-10)
+	health += 10
+	ui.update_health(10)
 
 func yellow_ball():
-	tach += -10
-	ui.update_tach(-10)
-
-
+	power += 10
+	ui.update_power(10)
+func set_health(value):
+	health += value
+	ui.update_health(value)
+	
 func _on_sit_timer_timeout() -> void:
 	animated_sprite.play("stand_to_sit")
 	lay_timer.start()

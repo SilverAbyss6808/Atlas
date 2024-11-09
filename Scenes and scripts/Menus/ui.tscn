@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://fty67buyymar"]
+[gd_scene load_steps=14 format=3 uid="uid://fty67buyymar"]
 
 [ext_resource type="Script" path="res://Scenes and scripts/Menus/ui.gd" id="1_bk8xt"]
 [ext_resource type="FontFile" uid="uid://bsgngl7m1e6g7" path="res://assets/fonts/PixelOperator8.ttf" id="1_x22nq"]
@@ -6,14 +6,23 @@
 [ext_resource type="StyleBox" uid="uid://dvum3slah5fri" path="res://Scenes and scripts/Menus/progressbarBackgroundStyle.tres" id="3_mmw8t"]
 [ext_resource type="LabelSettings" uid="uid://cfr4wc2xjxx36" path="res://abilityLabelSettings.tres" id="4_3ye62"]
 [ext_resource type="StyleBox" uid="uid://hjxmstbri8fs" path="res://Scenes and scripts/Menus/progressbarFillStyle.tres" id="4_14osq"]
+[ext_resource type="LabelSettings" uid="uid://cgt85p5fwpr2o" path="res://default_label.tres" id="4_hsgun"]
 [ext_resource type="Texture2D" uid="uid://22dj3rqsota8" path="res://assets/sprites/Icons/nano_claw_image.png" id="5_ogkp5"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_p84rj"]
-font = ExtResource("1_x22nq")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1eadv"]
+bg_color = Color(0.929805, 0.0428038, 0.362876, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxfhp"]
-bg_color = Color(6.16074e-06, 0.650304, 0.892019, 1)
-border_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jpw8i"]
+bg_color = Color(64.325, 41.081, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tld1"]
+bg_color = Color(1.54018e-06, 0.657764, 0.856153, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uselo"]
+bg_color = Color(0.658371, 0, 0.0296152, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qs0l"]
+bg_color = Color(0.658824, 0, 0.0313726, 1)
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_bk8xt")
@@ -40,6 +49,7 @@ theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -49,52 +59,38 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("1_x22nq")
-text = "Health: 100%"
+text = "Health:   100"
+
+[node name="HealthBar" type="ProgressBar" parent="Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 15)
+layout_mode = 2
+theme_override_styles/background = ExtResource("3_mmw8t")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1eadv")
+show_percentage = false
 
 [node name="TachLabel" type="Label" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_x22nq")
-text = "Tachyon Level: 100%"
+text = "Tachyon: 100"
+
+[node name="TachBar" type="ProgressBar" parent="Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 15)
+layout_mode = 2
+theme_override_styles/background = ExtResource("3_mmw8t")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jpw8i")
+show_percentage = false
 
 [node name="PowerLabel" type="Label" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
+text = "Power:    100"
+label_settings = ExtResource("4_hsgun")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-
-[node name="CooldownContainer" type="VBoxContainer" parent="Control/MarginContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_constants/separation = 8
-
-[node name="Slot1CooldownBar" type="ProgressBar" parent="Control/MarginContainer/MarginContainer/CooldownContainer"]
+[node name="PowerBar" type="ProgressBar" parent="Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 15)
 layout_mode = 2
 theme_override_styles/background = ExtResource("3_mmw8t")
-theme_override_styles/fill = ExtResource("4_14osq")
-max_value = 10.0
-fill_mode = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_2tld1")
 show_percentage = false
-
-[node name="Slot1CooldownLabel" type="Label" parent="Control/MarginContainer/MarginContainer/CooldownContainer"]
-layout_mode = 2
-text = "Slot 1: 10 sec"
-label_settings = SubResource("LabelSettings_p84rj")
-
-[node name="Slot2CooldownBar" type="ProgressBar" parent="Control/MarginContainer/MarginContainer/CooldownContainer"]
-layout_mode = 2
-theme_override_styles/background = ExtResource("3_mmw8t")
-theme_override_styles/fill = SubResource("StyleBoxFlat_xxfhp")
-max_value = 10.0
-fill_mode = 1
-show_percentage = false
-
-[node name="Slot2CooldownLabel" type="Label" parent="Control/MarginContainer/MarginContainer/CooldownContainer"]
-layout_mode = 2
-text = "Slot 2: 10 sec"
-label_settings = SubResource("LabelSettings_p84rj")
 
 [node name="MarginContainer2" type="MarginContainer" parent="Control/MarginContainer"]
 custom_minimum_size = Vector2(208, 120)
@@ -115,6 +111,13 @@ layout_mode = 2
 theme_override_styles/background = ExtResource("3_mmw8t")
 theme_override_styles/fill = ExtResource("4_14osq")
 max_value = 5.0
+show_percentage = false
+
+[node name="Slot1Cooldown" type="ProgressBar" parent="Control/MarginContainer/MarginContainer2/Ability container/Slot1Container"]
+layout_mode = 2
+theme_override_styles/background = ExtResource("3_mmw8t")
+theme_override_styles/fill = SubResource("StyleBoxFlat_uselo")
+max_value = 10.0
 show_percentage = false
 
 [node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/MarginContainer2/Ability container/Slot1Container"]
@@ -140,7 +143,14 @@ size_flags_horizontal = 3
 layout_mode = 2
 theme_override_styles/background = ExtResource("3_mmw8t")
 theme_override_styles/fill = ExtResource("4_14osq")
-max_value = 0.5
+max_value = 0.3
+show_percentage = false
+
+[node name="Slot2Cooldown" type="ProgressBar" parent="Control/MarginContainer/MarginContainer2/Ability container/Slot2Container"]
+layout_mode = 2
+theme_override_styles/background = ExtResource("3_mmw8t")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7qs0l")
+max_value = 1.0
 show_percentage = false
 
 [node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/MarginContainer2/Ability container/Slot2Container"]

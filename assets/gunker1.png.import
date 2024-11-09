@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caklhguhigutr"
-path="res://.godot/imported/speed_particle.png-055f565a94c1124bb74e3dc360927c5c.ctex"
+uid="uid://p24xu67uv0xy"
+path="res://.godot/imported/gunker1.png-91b0da36070deae7231928e081dfd1b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/speed_particle.png"
-dest_files=["res://.godot/imported/speed_particle.png-055f565a94c1124bb74e3dc360927c5c.ctex"]
+source_file="res://assets/gunker1.png"
+dest_files=["res://.godot/imported/gunker1.png-91b0da36070deae7231928e081dfd1b5.ctex"]
 
 [params]
 

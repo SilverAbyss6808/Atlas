@@ -1,6 +1,6 @@
 extends Node2D
 @onready var player: CharacterBody2D = %player
-@onready var player_cam: Camera2D = $player/playerCam
+
 
 
 const PAUSE = preload("res://Scenes and scripts/Menus/pause_menu.tscn")

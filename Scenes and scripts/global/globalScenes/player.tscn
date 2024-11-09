@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://bqlk71kugsjfs"]
+[gd_scene load_steps=83 format=3 uid="uid://bqlk71kugsjfs"]
 
 [ext_resource type="Script" path="res://Scenes and scripts/global/global scripts/player.gd" id="1_3a1r7"]
 [ext_resource type="Texture2D" uid="uid://bjhl0w0hh3see" path="res://assets/sprites/atlas_idle.png" id="1_n1xc8"]
@@ -6,8 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://dhb24ht8wsunc" path="res://assets/sprites/sit_lay_trans.png" id="3_sw4qx"]
 [ext_resource type="Texture2D" uid="uid://dhsfe7yuu4qb8" path="res://assets/sprites/stand_sit_trans.png" id="4_3r8ln"]
 [ext_resource type="PackedScene" uid="uid://fty67buyymar" path="res://Scenes and scripts/Menus/ui.tscn" id="6_epy51"]
-[ext_resource type="Texture2D" uid="uid://caklhguhigutr" path="res://assets/sprites/speed_particle.png" id="7_jphhv"]
+[ext_resource type="Texture2D" uid="uid://caklhguhigutr" path="res://assets/sprites/particles/speed_particle.png" id="7_jphhv"]
 [ext_resource type="Script" path="res://Scenes and scripts/global/global scripts/abilities.gd" id="7_vscgh"]
+[ext_resource type="Texture2D" uid="uid://du7t41mhthrhx" path="res://assets/sprites/blue_ball.png" id="9_7q67p"]
+[ext_resource type="Texture2D" uid="uid://0yaluvkh50u1" path="res://assets/sprites/particles/hurt_particle.png" id="10_qy1tw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jaigp"]
 atlas = ExtResource("1_n1xc8")
@@ -439,6 +441,183 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_k83du"]
 radius = 7.0
 
+[sub_resource type="Animation" id="Animation_7l02y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("nano_claw_collider:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("nano_claw_collider:monitorable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("nano_claw_collider:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_hx5xc"]
+resource_name = "nano_claw_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("nano_claw_collider:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("nano_claw_collider:monitorable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("nano_claw_collider:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("nano_claw_collider:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-40, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_q6e1n"]
+resource_name = "nano_claw_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("nano_claw_collider:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("nano_claw_collider:monitorable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("nano_claw_collider:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("nano_claw_collider:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_f2f22"]
+resource_name = "hurt"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Hurt:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kjxuf"]
+_data = {
+"RESET": SubResource("Animation_7l02y"),
+"hurt": SubResource("Animation_f2f22"),
+"nano_claw_left": SubResource("Animation_hx5xc"),
+"nano_claw_right": SubResource("Animation_q6e1n")
+}
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_upfk3"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -11, 0)
+spread = 180.0
+initial_velocity_min = 20.0
+initial_velocity_max = 60.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.3
+scale_max = 0.3
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.23
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8bhbd"]
 lifetime_randomness = 0.54
 particle_flag_disable_z = true
@@ -457,7 +636,47 @@ color = Color(0.921569, 0.917647, 0.0156863, 1)
 hue_variation_min = -2.23517e-08
 hue_variation_max = 0.17
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ni4y"]
+atlas = ExtResource("9_7q67p")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hkxv"]
+atlas = ExtResource("9_7q67p")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kb80h"]
+atlas = ExtResource("9_7q67p")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rkji"]
+atlas = ExtResource("9_7q67p")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gt1vf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ni4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hkxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kb80h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rkji")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dakjw"]
+radius = 5.09902
+
 [node name="player" type="CharacterBody2D" groups=["Persist"]]
+z_index = 5
 collision_layer = 17
 script = ExtResource("1_3a1r7")
 
@@ -482,7 +701,8 @@ wait_time = 5.0
 one_shot = true
 
 [node name="playerCam" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
+limit_bottom = 120
 limit_smoothed = true
 position_smoothing_enabled = true
 
@@ -490,6 +710,22 @@ position_smoothing_enabled = true
 
 [node name="Abilities" type="Node" parent="."]
 script = ExtResource("7_vscgh")
+
+[node name="AbilityAnimations" type="AnimationPlayer" parent="Abilities"]
+root_node = NodePath("../nano_claw")
+libraries = {
+"": SubResource("AnimationLibrary_kjxuf")
+}
+
+[node name="Hurt" type="GPUParticles2D" parent="Abilities"]
+z_index = 6
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_upfk3")
+texture = ExtResource("10_qy1tw")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
 
 [node name="tach_boost" type="Node" parent="Abilities"]
 
@@ -504,13 +740,41 @@ wait_time = 5.0
 one_shot = true
 
 [node name="slot_1_cooldown" type="Timer" parent="Abilities"]
-wait_time = 10.0
+wait_time = 15.0
 one_shot = true
 
 [node name="slot_2_cooldown" type="Timer" parent="Abilities"]
-wait_time = 10.0
+wait_time = 1.3
+one_shot = true
+
+[node name="nano_claw" type="Node" parent="Abilities"]
+
+[node name="nano_claw_collider" type="Area2D" parent="Abilities/nano_claw"]
+visible = false
+position = Vector2(-43, 0)
+collision_layer = 64
+collision_mask = 32
+monitoring = false
+monitorable = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Abilities/nano_claw/nano_claw_collider"]
+position = Vector2(20, -12)
+scale = Vector2(0.6875, 0.6875)
+sprite_frames = SubResource("SpriteFrames_gt1vf")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Abilities/nano_claw/nano_claw_collider"]
+position = Vector2(20, -12)
+shape = SubResource("CircleShape2D_dakjw")
+
+[node name="nano_claw_timer" type="Timer" parent="Abilities/nano_claw"]
+wait_time = 0.3
 one_shot = true
 
 [connection signal="timeout" from="SitTimer" to="." method="_on_sit_timer_timeout"]
 [connection signal="timeout" from="LayTimer" to="." method="_on_lay_timer_timeout"]
 [connection signal="timeout" from="Abilities/tach_boost/tach_boost_timer" to="Abilities" method="_on_tach_boost_timer_timeout"]
+[connection signal="timeout" from="Abilities/slot_1_cooldown" to="Abilities" method="_on_slot_1_cooldown_timeout"]
+[connection signal="timeout" from="Abilities/slot_2_cooldown" to="Abilities" method="_on_slot_2_cooldown_timeout"]
+[connection signal="area_entered" from="Abilities/nano_claw/nano_claw_collider" to="Abilities" method="_on_nano_claw_collider_area_entered"]
+[connection signal="timeout" from="Abilities/nano_claw/nano_claw_timer" to="Abilities" method="_on_nano_claw_timer_timeout"]

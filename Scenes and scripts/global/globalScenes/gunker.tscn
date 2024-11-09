@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://c6is55qtcbuou"]
+
+[ext_resource type="Script" path="res://Scenes and scripts/global/global scripts/gunker.gd" id="1_8nv8k"]
+[ext_resource type="Texture2D" uid="uid://p24xu67uv0xy" path="res://assets/gunker1.png" id="1_mbtaa"]
+[ext_resource type="Texture2D" uid="uid://bg2ghl5gkrq0g" path="res://assets/sprites/particles/slime_glob.png" id="2_5uv0q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mjpnf"]
+radius = 5.09902
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8p7co"]
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+emission_shape_offset = Vector3(9, 7, 0)
+direction = Vector3(0, 0, 0)
+spread = 0.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = -1.60933e-05
+gravity = Vector3(0, 0.1, 0)
+scale_min = 0.1
+scale_max = 0.3
+collision_use_scale = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bw1de"]
+radius = 7.0
+
+[node name="Gunker" type="Node2D"]
+script = ExtResource("1_8nv8k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mbtaa")
+
+[node name="MainCollider" type="Area2D" parent="."]
+collision_mask = 16
+
+[node name="MainCollider" type="CollisionShape2D" parent="MainCollider"]
+position = Vector2(-1, 3)
+shape = SubResource("CircleShape2D_mjpnf")
+
+[node name="SlimeTrail" type="GPUParticles2D" parent="."]
+amount = 12
+process_material = SubResource("ParticleProcessMaterial_8p7co")
+texture = ExtResource("2_5uv0q")
+collision_base_size = 0.0
+
+[node name="ray_right" type="RayCast2D" parent="."]
+position = Vector2(10, 0)
+target_position = Vector2(0, 15)
+
+[node name="ray_left" type="RayCast2D" parent="."]
+position = Vector2(-10, 0)
+target_position = Vector2(0, 15)
+
+[node name="HitCollider" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitCollider"]
+position = Vector2(-1, 3)
+shape = SubResource("CircleShape2D_bw1de")
+
+[connection signal="area_entered" from="MainCollider" to="." method="_on_main_collider_area_entered"]
+[connection signal="body_entered" from="MainCollider" to="." method="_on_main_collider_body_entered"]
+[connection signal="area_entered" from="HitCollider" to="." method="_on_hit_collider_area_entered"]
