@@ -1,0 +1,112 @@
+[gd_scene load_steps=6 format=3 uid="uid://b062bckr1yyec"]
+
+[ext_resource type="FontFile" uid="uid://bsgngl7m1e6g7" path="res://assets/fonts/PixelOperator8.ttf" id="1_c7jek"]
+[ext_resource type="Script" path="res://Scenes and scripts/Menus/info_menu/info_menu.gd" id="1_pjnnj"]
+[ext_resource type="Theme" uid="uid://dv75pu7vowp7f" path="res://Scenes and scripts/Menus/ButtonTheme.tres" id="1_teaor"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdtoj"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5hx2r"]
+bg_color = Color(0.241156, 0.241156, 0.241156, 1)
+
+[node name="InfoMenu" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_pjnnj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.541)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TabsBackground" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wdtoj")
+
+[node name="TabsContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabsBackground"]
+layout_mode = 2
+
+[node name="SkillInfoButton" type="Button" parent="MarginContainer/VBoxContainer/TabsBackground/TabsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("1_teaor")
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("1_c7jek")
+theme_override_font_sizes/font_size = 24
+text = "Skills"
+
+[node name="PlayerInfoButton" type="Button" parent="MarginContainer/VBoxContainer/TabsBackground/TabsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_c7jek")
+theme_override_font_sizes/font_size = 24
+text = "Player"
+
+[node name="MapButton" type="Button" parent="MarginContainer/VBoxContainer/TabsBackground/TabsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_c7jek")
+theme_override_font_sizes/font_size = 24
+text = "Map"
+
+[node name="EncyclopediaButton" type="Button" parent="MarginContainer/VBoxContainer/TabsBackground/TabsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_c7jek")
+theme_override_font_sizes/font_size = 24
+text = "Encyclopedia"
+
+[node name="QuestsButton" type="Button" parent="MarginContainer/VBoxContainer/TabsBackground/TabsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_c7jek")
+theme_override_font_sizes/font_size = 24
+text = "Quests"
+
+[node name="InventoryButton" type="Button" parent="MarginContainer/VBoxContainer/TabsBackground/TabsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_c7jek")
+theme_override_font_sizes/font_size = 24
+text = "Inventory"
+
+[node name="InfoContainerBackground" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_5hx2r")
+
+[node name="InfoContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/InfoContainerBackground"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 8
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TabsBackground/TabsContainer/SkillInfoButton" to="." method="_on_skill_info_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TabsBackground/TabsContainer/PlayerInfoButton" to="." method="_on_player_info_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TabsBackground/TabsContainer/MapButton" to="." method="_on_map_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TabsBackground/TabsContainer/EncyclopediaButton" to="." method="_on_encyclopedia_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TabsBackground/TabsContainer/QuestsButton" to="." method="_on_quests_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TabsBackground/TabsContainer/InventoryButton" to="." method="_on_inventory_button_pressed"]

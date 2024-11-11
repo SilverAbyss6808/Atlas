@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dv75pu7vowp7f"]
+
+[ext_resource type="FontFile" uid="uid://bsgngl7m1e6g7" path="res://assets/fonts/PixelOperator8.ttf" id="1_x2rdd"]
+
+[resource]
+default_font = ExtResource("1_x2rdd")
+default_font_size = 24
+/colors/ButtonOutline = Color(1, 1, 1, 1)
+/fonts/ButtonFont = ExtResource("1_x2rdd")

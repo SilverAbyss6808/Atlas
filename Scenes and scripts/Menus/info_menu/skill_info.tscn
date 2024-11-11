@@ -1,0 +1,131 @@
+[gd_scene load_steps=8 format=3 uid="uid://d143etw6s3dlh"]
+
+[ext_resource type="FontFile" uid="uid://bsgngl7m1e6g7" path="res://assets/fonts/PixelOperator8.ttf" id="1_qtiqv"]
+[ext_resource type="Script" path="res://Scenes and scripts/Menus/info_menu/skill_info.gd" id="1_r6sd1"]
+[ext_resource type="Texture2D" uid="uid://dhdo7ki34ofmj" path="res://assets/sprites/Icons/left-arrow.png" id="2_djvep"]
+[ext_resource type="Texture2D" uid="uid://cxvv50itvvs4b" path="res://assets/sprites/Icons/right-arrow.png" id="3_e2peg"]
+[ext_resource type="Theme" uid="uid://dv75pu7vowp7f" path="res://Scenes and scripts/Menus/ButtonTheme.tres" id="5_sxb2c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_odo8j"]
+font = ExtResource("1_qtiqv")
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+outline_size = 2
+outline_color = Color(1, 0.94902, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dhtjv"]
+line_spacing = 16.0
+font = ExtResource("1_qtiqv")
+font_color = Color(0, 0, 0, 1)
+
+[node name="SkillInfo" type="VBoxContainer"]
+process_mode = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r6sd1")
+
+[node name="SkillTreeLabelBackground" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+color = Color(1, 1, 0.235294, 1)
+
+[node name="SkillTreeLabel" type="Label" parent="SkillTreeLabelBackground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_qtiqv")
+text = "Tachyon-Speed"
+label_settings = SubResource("LabelSettings_odo8j")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PrevTreeButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = ExtResource("2_djvep")
+expand_icon = true
+
+[node name="SkillTreeContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 16
+
+[node name="NextTreeButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = ExtResource("3_e2peg")
+expand_icon = true
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+color = Color(0.450648, 0.450648, 0.450648, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="SkillInfoLabel" type="Label" parent="HBoxContainer/ColorRect/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(184, 284)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Skill"
+label_settings = SubResource("LabelSettings_dhtjv")
+autowrap_mode = 3
+
+[node name="AbilityUnlockButton" type="Button" parent="HBoxContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_sxb2c")
+text = "Unlock?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Slot1Button" type="Button" parent="HBoxContainer/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_sxb2c")
+theme_override_font_sizes/font_size = 16
+text = "Slot1"
+
+[node name="Slot1Button2" type="Button" parent="HBoxContainer/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_sxb2c")
+theme_override_font_sizes/font_size = 16
+text = "Slot2"
+
+[connection signal="pressed" from="HBoxContainer/PrevTreeButton" to="." method="_on_prev_tree_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/NextTreeButton" to="." method="_on_next_tree_button_pressed"]

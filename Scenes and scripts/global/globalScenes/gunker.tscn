@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c6is55qtcbuou"]
 
 [ext_resource type="Script" path="res://Scenes and scripts/global/global scripts/gunker.gd" id="1_8nv8k"]
-[ext_resource type="Texture2D" uid="uid://p24xu67uv0xy" path="res://assets/gunker1.png" id="1_mbtaa"]
+[ext_resource type="Texture2D" uid="uid://p24xu67uv0xy" path="res://assets/sprites/gunker1.png" id="1_mbtaa"]
 [ext_resource type="Texture2D" uid="uid://bg2ghl5gkrq0g" path="res://assets/sprites/particles/slime_glob.png" id="2_5uv0q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mjpnf"]

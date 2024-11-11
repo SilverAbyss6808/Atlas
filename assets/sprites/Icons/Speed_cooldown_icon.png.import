@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p24xu67uv0xy"
-path="res://.godot/imported/gunker1.png-91b0da36070deae7231928e081dfd1b5.ctex"
+uid="uid://m1b1a80u0gi5"
+path="res://.godot/imported/Speed_cooldown_icon.png-39bea4f613dc1c708bfd6c95225837c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gunker1.png"
-dest_files=["res://.godot/imported/gunker1.png-91b0da36070deae7231928e081dfd1b5.ctex"]
+source_file="res://assets/sprites/Icons/Speed_cooldown_icon.png"
+dest_files=["res://.godot/imported/Speed_cooldown_icon.png-39bea4f613dc1c708bfd6c95225837c0.ctex"]
 
 [params]
 
