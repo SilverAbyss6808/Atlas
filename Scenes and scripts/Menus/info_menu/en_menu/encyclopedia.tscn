@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbgbiwo4nt0bl"]
+
+[ext_resource type="Script" path="res://Scenes and scripts/Menus/info_menu/en_menu/encyclopedia.gd" id="1_3qlcf"]
+[ext_resource type="Theme" uid="uid://dv75pu7vowp7f" path="res://Scenes and scripts/Menus/ButtonTheme.tres" id="1_d7hg4"]
+
+[node name="Encyclopedia" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3qlcf")
+
+[node name="ETabs" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="EnemiesButton" type="Button" parent="ETabs"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("1_d7hg4")
+text = "Enemies"
+
+[node name="CharactersButton" type="Button" parent="ETabs"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("1_d7hg4")
+text = "Characters"
+
+[node name="LocationsButton" type="Button" parent="ETabs"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("1_d7hg4")
+text = "Locations"
+
+[node name="AbilitiesButton" type="Button" parent="ETabs"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("1_d7hg4")
+text = "Abilities"
+
+[node name="ItemsButton" type="Button" parent="ETabs"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("1_d7hg4")
+text = "Items"
+
+[node name="YibEntriesButton" type="Button" parent="ETabs"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("1_d7hg4")
+text = "YIB entries"
+
+[node name="PageContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="ETabs/EnemiesButton" to="." method="_on_enemies_button_pressed"]
+[connection signal="pressed" from="ETabs/CharactersButton" to="." method="_on_characters_button_pressed"]
+[connection signal="pressed" from="ETabs/LocationsButton" to="." method="_on_locations_button_pressed"]
+[connection signal="pressed" from="ETabs/AbilitiesButton" to="." method="_on_abilities_button_pressed"]
+[connection signal="pressed" from="ETabs/ItemsButton" to="." method="_on_items_button_pressed"]
+[connection signal="pressed" from="ETabs/YibEntriesButton" to="." method="_on_yib_entries_button_pressed"]

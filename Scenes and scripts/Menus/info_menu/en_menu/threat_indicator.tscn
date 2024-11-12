@@ -1,0 +1,98 @@
+[gd_scene load_steps=5 format=3 uid="uid://c32kkxvx872q1"]
+
+[ext_resource type="Script" path="res://Scenes and scripts/Menus/info_menu/en_menu/threat_indicator.gd" id="1_4xrey"]
+[ext_resource type="Texture2D" uid="uid://n73j1h34mi6v" path="res://assets/sprites/Icons/arrow-up.png" id="1_xbdpv"]
+[ext_resource type="FontFile" uid="uid://bsgngl7m1e6g7" path="res://assets/fonts/PixelOperator8.ttf" id="2_unek7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4sdlk"]
+line_spacing = 6.0
+font = ExtResource("2_unek7")
+
+[node name="ThreatIndicator" type="VBoxContainer"]
+custom_minimum_size = Vector2(210, 45)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+script = ExtResource("1_4xrey")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(210, 40)
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.196078, 0.658824, 0.321569, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 0.983333, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.929412, 0.470588, 0.0352941, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.658824, 0.196078, 0.243137, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="safeInd" type="TextureRect" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("1_xbdpv")
+expand_mode = 1
+
+[node name="waryInd" type="TextureRect" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("1_xbdpv")
+expand_mode = 1
+
+[node name="dangerInd" type="TextureRect" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("1_xbdpv")
+expand_mode = 1
+
+[node name="highInd" type="TextureRect" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("1_xbdpv")
+expand_mode = 1
+
+[node name="avoidInd" type="TextureRect" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("1_xbdpv")
+expand_mode = 1
+
+[node name="ThreatLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(210, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Threat Level:"
+label_settings = SubResource("LabelSettings_4sdlk")
+autowrap_mode = 3

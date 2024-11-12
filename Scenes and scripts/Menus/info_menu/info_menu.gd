@@ -10,6 +10,7 @@ extends CanvasLayer
 
 
 const SKILL = preload("res://Scenes and scripts/Menus/info_menu/skill_info.tscn")
+const ENCYCLOPEDIA = preload("res://Scenes and scripts/Menus/info_menu/EN_menu/encyclopedia.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var skill_info = SKILL.instantiate()
@@ -47,7 +48,8 @@ func _on_encyclopedia_button_pressed() -> void:
 	for n in info_container.get_children():
 		info_container.remove_child(n)
 		n.queue_free()
-
+	var encyclopedia = ENCYCLOPEDIA.instantiate()
+	info_container.add_child(encyclopedia)
 
 func _on_quests_button_pressed() -> void:
 	for n in info_container.get_children():

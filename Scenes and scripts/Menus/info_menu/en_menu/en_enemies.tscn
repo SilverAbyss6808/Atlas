@@ -1,0 +1,150 @@
+[gd_scene load_steps=3 format=3 uid="uid://crgu56cylm4c"]
+
+[ext_resource type="Script" path="res://Scenes and scripts/Menus/info_menu/en_menu/en_enemies.gd" id="1_xactt"]
+[ext_resource type="FontFile" uid="uid://bsgngl7m1e6g7" path="res://assets/fonts/PixelOperator8.ttf" id="2_xa2r1"]
+
+[node name="EN-enemies" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xactt")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="GunkerBut" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xa2r1")
+theme_override_font_sizes/font_size = 16
+text = "Gunker"
+
+[node name="JumperBut" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xa2r1")
+theme_override_font_sizes/font_size = 16
+text = "Jumper"
+
+[node name="ShamblerBut" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xa2r1")
+theme_override_font_sizes/font_size = 16
+text = "Shambler"
+
+[node name="Enemy4" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xa2r1")
+theme_override_font_sizes/font_size = 16
+text = "Enemy"
+
+[node name="Enemy5" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xa2r1")
+theme_override_font_sizes/font_size = 16
+text = "Enemy"
+
+[node name="Enemy6" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xa2r1")
+theme_override_font_sizes/font_size = 16
+text = "Enemy"
+
+[node name="Enemy7" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xa2r1")
+theme_override_font_sizes/font_size = 16
+text = "Enemy"
+
+[node name="Enemy8" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xa2r1")
+theme_override_font_sizes/font_size = 16
+text = "Enemy"
+
+[node name="Enemy9" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xa2r1")
+theme_override_font_sizes/font_size = 16
+text = "Enemy"
+
+[node name="Enemy10" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xa2r1")
+theme_override_font_sizes/font_size = 16
+text = "Enemy"
+
+[node name="Enemy11" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xa2r1")
+theme_override_font_sizes/font_size = 16
+text = "Enemy"
+
+[node name="Enemy12" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xa2r1")
+theme_override_font_sizes/font_size = 16
+text = "Enemy"
+
+[node name="Enemy13" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xa2r1")
+theme_override_font_sizes/font_size = 16
+text = "Enemy"
+
+[node name="Enemy14" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xa2r1")
+theme_override_font_sizes/font_size = 16
+text = "Enemy"
+
+[node name="Enemy15" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xa2r1")
+theme_override_font_sizes/font_size = 16
+text = "Enemy"
+
+[node name="EnemyInfoPage" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/GunkerBut" to="." method="_on_gunker_but_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/JumperBut" to="." method="_on_jumper_but_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/ShamblerBut" to="." method="_on_shambler_but_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Enemy4" to="." method="_on_shambler_but_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Enemy5" to="." method="_on_shambler_but_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Enemy6" to="." method="_on_shambler_but_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Enemy7" to="." method="_on_shambler_but_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Enemy8" to="." method="_on_shambler_but_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Enemy9" to="." method="_on_shambler_but_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Enemy10" to="." method="_on_shambler_but_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Enemy11" to="." method="_on_shambler_but_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Enemy12" to="." method="_on_shambler_but_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Enemy13" to="." method="_on_shambler_but_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Enemy14" to="." method="_on_shambler_but_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Enemy15" to="." method="_on_shambler_but_pressed"]

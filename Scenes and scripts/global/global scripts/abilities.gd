@@ -4,7 +4,8 @@ extends Node
 @onready var tach_boost_timer: Timer = $tach_boost/tach_boost_timer
 @onready var slot_1_cooldown: Timer = $slot_1_cooldown
 @onready var slot_2_cooldown: Timer = $slot_2_cooldown
-@onready var ui: UI = $"../playerCam/ui"
+
+@onready var ui: UI = $"../playerCam/UI"
 @onready var ability_animations: AnimationPlayer = $AbilityAnimations
 @onready var nano_claw_timer: Timer = $nano_claw/nano_claw_timer
 @onready var nano_claw_collider: Area2D = $nano_claw/nano_claw_collider

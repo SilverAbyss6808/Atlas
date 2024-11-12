@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dxru8681xrluk" path="res://assets/sprites/run.png" id="2_cfi4r"]
 [ext_resource type="Texture2D" uid="uid://dhb24ht8wsunc" path="res://assets/sprites/sit_lay_trans.png" id="3_sw4qx"]
 [ext_resource type="Texture2D" uid="uid://dhsfe7yuu4qb8" path="res://assets/sprites/stand_sit_trans.png" id="4_3r8ln"]
-[ext_resource type="PackedScene" uid="uid://fty67buyymar" path="res://Scenes and scripts/Menus/ui.tscn" id="6_epy51"]
+[ext_resource type="PackedScene" uid="uid://fty67buyymar" path="res://Scenes and scripts/Menus/ui.tscn" id="6_lktnd"]
 [ext_resource type="Texture2D" uid="uid://caklhguhigutr" path="res://assets/sprites/particles/speed_particle.png" id="7_jphhv"]
 [ext_resource type="Script" path="res://Scenes and scripts/global/global scripts/abilities.gd" id="7_vscgh"]
 [ext_resource type="Texture2D" uid="uid://du7t41mhthrhx" path="res://assets/sprites/blue_ball.png" id="9_7q67p"]
@@ -706,7 +706,7 @@ limit_bottom = 120
 limit_smoothed = true
 position_smoothing_enabled = true
 
-[node name="ui" parent="playerCam" instance=ExtResource("6_epy51")]
+[node name="UI" parent="playerCam" instance=ExtResource("6_lktnd")]
 
 [node name="Abilities" type="Node" parent="."]
 script = ExtResource("7_vscgh")

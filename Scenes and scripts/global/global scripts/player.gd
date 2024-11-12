@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var ui: UI = $playerCam/ui
+@onready var ui: UI = $playerCam/UI
 @onready var sit_timer: Timer = $SitTimer
 @onready var lay_timer: Timer = $LayTimer
 @onready var abilities: Node = $Abilities
