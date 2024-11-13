@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ciejqmts13v6o"]
+[gd_scene load_steps=13 format=3 uid="uid://ciejqmts13v6o"]
 
 [ext_resource type="Texture2D" uid="uid://cs74umqdxgrm2" path="res://assets/sprites/tiles/Tileset/level_tileset.png" id="1_6yab3"]
 [ext_resource type="Script" path="res://Scenes and scripts/global/global scripts/room_1.gd" id="1_oiwsn"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dcvdchqwm8nr6" path="res://Scenes and scripts/global/globalScenes/Death_plane.tscn" id="6_u6jjq"]
 [ext_resource type="PackedScene" uid="uid://bqlk71kugsjfs" path="res://Scenes and scripts/global/globalScenes/player.tscn" id="7_la81l"]
 [ext_resource type="PackedScene" uid="uid://c6is55qtcbuou" path="res://Scenes and scripts/global/globalScenes/gunker.tscn" id="7_qsj5h"]
+[ext_resource type="PackedScene" uid="uid://bh1c7p7bhjmbl" path="res://Scenes and scripts/global/globalScenes/jumper.tscn" id="8_00m5w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ijskf"]
 texture = ExtResource("1_6yab3")
@@ -472,7 +473,7 @@ script = SubResource("GDScript_qkt6x")
 
 [node name="player" parent="." instance=ExtResource("7_la81l")]
 unique_name_in_owner = true
-position = Vector2(-2, 17)
+position = Vector2(1754, -126)
 
 [node name="hitables" type="Node" parent="."]
 
@@ -504,3 +505,6 @@ position = Vector2(1039, -53)
 
 [node name="Gunker2" parent="." instance=ExtResource("7_qsj5h")]
 position = Vector2(439, -54)
+
+[node name="Jumper" parent="." instance=ExtResource("8_00m5w")]
+position = Vector2(1863, -144)

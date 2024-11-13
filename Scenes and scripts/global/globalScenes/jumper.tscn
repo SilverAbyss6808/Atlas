@@ -1,0 +1,84 @@
+[gd_scene load_steps=10 format=3 uid="uid://bh1c7p7bhjmbl"]
+
+[ext_resource type="Script" path="res://Scenes and scripts/global/global scripts/jumper.gd" id="1_3o3q0"]
+[ext_resource type="Texture2D" uid="uid://cb42xqp2i8esw" path="res://assets/sprites/jumper.png" id="1_narmh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a23oi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yycgw"]
+height = 36.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ka7w6"]
+atlas = ExtResource("1_narmh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pookm"]
+atlas = ExtResource("1_narmh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bou4c"]
+atlas = ExtResource("1_narmh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jfvrb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ka7w6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pookm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bou4c")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lbr3h"]
+
+[node name="Jumper" type="CharacterBody2D"]
+collision_layer = 32
+script = ExtResource("1_3o3q0")
+
+[node name="MainCollider" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_a23oi")
+
+[node name="Hit" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit"]
+position = Vector2(0, 4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_yycgw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jfvrb")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.248469
+
+[node name="JumpTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="PlayerCollider" type="Area2D" parent="."]
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollider"]
+z_index = -1
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_lbr3h")
+
+[connection signal="area_entered" from="Hit" to="." method="_on_hit_area_entered"]
+[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
+[connection signal="body_entered" from="PlayerCollider" to="." method="_on_player_collider_body_entered"]

@@ -14,8 +14,8 @@ extends Node
 
 
 
-var tach_boost_cooldown = 10
-var nano_claw_cooldown = .5
+var tach_boost_cooldown = Global.tach_speed_cooldowns[0]
+var nano_claw_cooldown = Global.nano_attack_cooldowns[0]
 var player_direction = 1
 
 # Called when the node enters the scene tree for the first time.
@@ -68,6 +68,10 @@ func _process(delta: float) -> void:
 	ui.slot2_cool = slot_2_cooldown.time_left
 	ui.ability1_time = tach_boost_timer.time_left
 	ui.ability2_time = nano_claw_timer.time_left
+	
+	#set cooldowns to what's in the global file(for skill tree functionallity)
+	tach_boost_cooldown = Global.tach_speed_cooldowns[0]
+	nano_claw_cooldown = Global.nano_attack_cooldowns[0]
 	
 	nano_claw_collider.position.x = player.position.x + 20
 	nano_claw_collider.position.y = player.position.y-10

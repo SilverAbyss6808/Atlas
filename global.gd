@@ -4,6 +4,17 @@ var prevscene = ""
 var currentLevel = ""
 var save_path = "res://saves/variable.save"
 var loading = false
+var skill_info = "Skill Info: "
+var player_x = 0
+var player_y = 0
+
+#variables for cooldowns of skills, skill name comment by index is by the set function
+var tach_speed_cooldowns = [10,0]
+var tach_slow_cooldowns = [5,0]
+var nano_attack_cooldowns = [.5, 0]
+var nano_buff_cooldowns = [0,0]
+var current_skill_in_tree = ""
+var unlock_flag = false
 # Called when the node enters the scene tree for the first time.
 func set_prevscene (value):
 	prevscene = value
@@ -67,3 +78,19 @@ func load_game():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func set_skill_info(value: String):
+	skill_info = value
+#tachspeed skill order: tach_boost
+#tachslow skill order:
+#nanoattack skill order: nano_claw
+#nanobuff skill order:
+func set_skill_cooldown(type: String, index: int, value):
+	if type == "tachspeed":
+		tach_speed_cooldowns[index] = value
+	elif type == "tachslow":
+		tach_slow_cooldowns[index] = value
+	elif type == "nanoattack":
+		nano_attack_cooldowns[index] = value
+	elif type == "nanobuff":
+		nano_buff_cooldowns[index] = value

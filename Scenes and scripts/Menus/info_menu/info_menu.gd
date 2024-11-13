@@ -8,11 +8,11 @@ extends CanvasLayer
 @onready var inventory_button: Button = $MarginContainer/VBoxContainer/TabsBackground/TabsContainer/InventoryButton
 @onready var info_container: MarginContainer = $MarginContainer/VBoxContainer/InfoContainerBackground/InfoContainer
 
-
 const SKILL = preload("res://Scenes and scripts/Menus/info_menu/skill_info.tscn")
 const ENCYCLOPEDIA = preload("res://Scenes and scripts/Menus/info_menu/EN_menu/encyclopedia.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	skill_info_button.grab_focus()
 	var skill_info = SKILL.instantiate()
 	info_container.add_child(skill_info)
 
@@ -22,8 +22,6 @@ func _process(delta: float) -> void:
 		get_tree().paused = false
 		queue_free()
 	
-
-
 
 func _on_skill_info_button_pressed() -> void:
 	for n in info_container.get_children():

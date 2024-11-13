@@ -36,6 +36,9 @@ func save():
 func _ready() -> void:
 	ui.reload_ui(health, tach, power)
 func _physics_process(delta: float) -> void:
+	Global.player_x = position.x
+	Global.player_y = position.y
+	
 	ui.reload_ui(health, tach, power)
 	if ui.health <= 0:
 		print("dead")

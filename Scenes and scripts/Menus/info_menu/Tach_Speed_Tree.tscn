@@ -1,12 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://d08qt3nox2bdy"]
+[gd_scene load_steps=11 format=3 uid="uid://d08qt3nox2bdy"]
 
 [ext_resource type="FontFile" uid="uid://bsgngl7m1e6g7" path="res://assets/fonts/PixelOperator8.ttf" id="1_58bwa"]
+[ext_resource type="Script" path="res://Scenes and scripts/Menus/info_menu/tach_boost_tree.gd" id="2_5ltcu"]
 [ext_resource type="Texture2D" uid="uid://b3bltxskl4due" path="res://assets/sprites/Icons/tach_boost_image.png" id="2_6atak"]
 [ext_resource type="Texture2D" uid="uid://22dj3rqsota8" path="res://assets/sprites/Icons/nano_claw_image.png" id="2_bjhgi"]
 [ext_resource type="Texture2D" uid="uid://duhx63bu580gp" path="res://assets/sprites/passive_skill_connectors1.png" id="3_8t2mx"]
 [ext_resource type="Texture2D" uid="uid://m1b1a80u0gi5" path="res://assets/sprites/Icons/Speed_cooldown_icon.png" id="4_uarjj"]
 [ext_resource type="Texture2D" uid="uid://pmrhosnb2nkc" path="res://assets/sprites/Icons/Speed_speed_icon.png" id="5_ojyea"]
 [ext_resource type="Texture2D" uid="uid://bc8acpo3c5hq6" path="res://assets/sprites/Icons/Speed_damage_icon.png" id="6_dck6o"]
+[ext_resource type="Texture2D" uid="uid://xnqlh427eo2b" path="res://assets/sprites/Icons/Speed_basic_icon.png" id="7_4mw2l"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uxplg"]
 font = ExtResource("1_58bwa")
@@ -41,18 +43,20 @@ layout_mode = 2
 size_flags_horizontal = 6
 theme_override_constants/separation = 120
 
-[node name="Subtree1" type="VBoxContainer" parent="TiersContainer/Tier1/Tier1Skills"]
+[node name="TachBoostTree" type="VBoxContainer" parent="TiersContainer/Tier1/Tier1Skills"]
 layout_mode = 2
 theme_override_constants/separation = 8
+script = ExtResource("2_5ltcu")
 
-[node name="ActiveSkillIcon" type="TextureButton" parent="TiersContainer/Tier1/Tier1Skills/Subtree1"]
+[node name="TachBoostSkillIcon" type="TextureButton" parent="TiersContainer/Tier1/Tier1Skills/TachBoostTree"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("2_6atak")
+texture_pressed = ExtResource("2_bjhgi")
 stretch_mode = 0
 
-[node name="TextureRect" type="TextureRect" parent="TiersContainer/Tier1/Tier1Skills/Subtree1"]
+[node name="TextureRect" type="TextureRect" parent="TiersContainer/Tier1/Tier1Skills/TachBoostTree"]
 custom_minimum_size = Vector2(110, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -60,7 +64,7 @@ size_flags_vertical = 3
 mouse_filter = 2
 texture = ExtResource("3_8t2mx")
 
-[node name="PassiveSkillsContainer" type="VBoxContainer" parent="TiersContainer/Tier1/Tier1Skills/Subtree1/TextureRect"]
+[node name="PassiveSkillsContainer" type="VBoxContainer" parent="TiersContainer/Tier1/Tier1Skills/TachBoostTree/TextureRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -75,45 +79,46 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TiersContainer/Tier1/Tier1Skills/Subtree1/TextureRect/PassiveSkillsContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TiersContainer/Tier1/Tier1Skills/TachBoostTree/TextureRect/PassiveSkillsContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Cooldown1" type="TextureButton" parent="TiersContainer/Tier1/Tier1Skills/Subtree1/TextureRect/PassiveSkillsContainer/HBoxContainer"]
+[node name="TachBoostCooldown1" type="TextureButton" parent="TiersContainer/Tier1/Tier1Skills/TachBoostTree/TextureRect/PassiveSkillsContainer/HBoxContainer"]
 custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 texture_normal = ExtResource("4_uarjj")
+texture_pressed = ExtResource("7_4mw2l")
 stretch_mode = 0
 
-[node name="Speed1" type="TextureButton" parent="TiersContainer/Tier1/Tier1Skills/Subtree1/TextureRect/PassiveSkillsContainer/HBoxContainer"]
+[node name="TachBoostSpeed1" type="TextureButton" parent="TiersContainer/Tier1/Tier1Skills/TachBoostTree/TextureRect/PassiveSkillsContainer/HBoxContainer"]
 custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 texture_normal = ExtResource("5_ojyea")
 stretch_mode = 0
 
-[node name="Damage1" type="TextureButton" parent="TiersContainer/Tier1/Tier1Skills/Subtree1/TextureRect/PassiveSkillsContainer/HBoxContainer"]
+[node name="TachBoostDamage1" type="TextureButton" parent="TiersContainer/Tier1/Tier1Skills/TachBoostTree/TextureRect/PassiveSkillsContainer/HBoxContainer"]
 custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 texture_normal = ExtResource("6_dck6o")
 stretch_mode = 0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="TiersContainer/Tier1/Tier1Skills/Subtree1/TextureRect/PassiveSkillsContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="TiersContainer/Tier1/Tier1Skills/TachBoostTree/TextureRect/PassiveSkillsContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Cooldown1" type="TextureButton" parent="TiersContainer/Tier1/Tier1Skills/Subtree1/TextureRect/PassiveSkillsContainer/HBoxContainer2"]
+[node name="TachBoostCooldown2" type="TextureButton" parent="TiersContainer/Tier1/Tier1Skills/TachBoostTree/TextureRect/PassiveSkillsContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 texture_normal = ExtResource("4_uarjj")
 stretch_mode = 0
 
-[node name="Speed1" type="TextureButton" parent="TiersContainer/Tier1/Tier1Skills/Subtree1/TextureRect/PassiveSkillsContainer/HBoxContainer2"]
+[node name="TachBoostSpeed2" type="TextureButton" parent="TiersContainer/Tier1/Tier1Skills/TachBoostTree/TextureRect/PassiveSkillsContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 texture_normal = ExtResource("5_ojyea")
 stretch_mode = 0
 
-[node name="Damage1" type="TextureButton" parent="TiersContainer/Tier1/Tier1Skills/Subtree1/TextureRect/PassiveSkillsContainer/HBoxContainer2"]
+[node name="TachBoostDamage2" type="TextureButton" parent="TiersContainer/Tier1/Tier1Skills/TachBoostTree/TextureRect/PassiveSkillsContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 texture_normal = ExtResource("6_dck6o")
@@ -1016,3 +1021,11 @@ custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 texture_normal = ExtResource("6_dck6o")
 stretch_mode = 0
+
+[connection signal="pressed" from="TiersContainer/Tier1/Tier1Skills/TachBoostTree/TachBoostSkillIcon" to="TiersContainer/Tier1/Tier1Skills/TachBoostTree" method="_on_tach_boost_skill_icon_pressed"]
+[connection signal="pressed" from="TiersContainer/Tier1/Tier1Skills/TachBoostTree/TextureRect/PassiveSkillsContainer/HBoxContainer/TachBoostCooldown1" to="TiersContainer/Tier1/Tier1Skills/TachBoostTree" method="_on_tach_boost_cooldown_1_pressed"]
+[connection signal="pressed" from="TiersContainer/Tier1/Tier1Skills/TachBoostTree/TextureRect/PassiveSkillsContainer/HBoxContainer/TachBoostSpeed1" to="TiersContainer/Tier1/Tier1Skills/TachBoostTree" method="_on_tach_boost_speed_1_pressed"]
+[connection signal="pressed" from="TiersContainer/Tier1/Tier1Skills/TachBoostTree/TextureRect/PassiveSkillsContainer/HBoxContainer/TachBoostDamage1" to="TiersContainer/Tier1/Tier1Skills/TachBoostTree" method="_on_tach_boost_damage_1_pressed"]
+[connection signal="pressed" from="TiersContainer/Tier1/Tier1Skills/TachBoostTree/TextureRect/PassiveSkillsContainer/HBoxContainer2/TachBoostCooldown2" to="TiersContainer/Tier1/Tier1Skills/TachBoostTree" method="_on_tach_boost_cooldown_2_pressed"]
+[connection signal="pressed" from="TiersContainer/Tier1/Tier1Skills/TachBoostTree/TextureRect/PassiveSkillsContainer/HBoxContainer2/TachBoostSpeed2" to="TiersContainer/Tier1/Tier1Skills/TachBoostTree" method="_on_tach_boost_speed_2_pressed"]
+[connection signal="pressed" from="TiersContainer/Tier1/Tier1Skills/TachBoostTree/TextureRect/PassiveSkillsContainer/HBoxContainer2/TachBoostDamage2" to="TiersContainer/Tier1/Tier1Skills/TachBoostTree" method="_on_tach_boost_damage_2_pressed"]

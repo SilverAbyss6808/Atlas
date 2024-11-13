@@ -7,7 +7,6 @@ extends Control
 const OPTIONS = preload("res://Scenes and scripts/Menus/options.tscn")
 func _ready() -> void:
 	continue_button.grab_focus()
-	print(Global.loading)
 
 func _on_continue_button_pressed() -> void:
 	Global.loading = true

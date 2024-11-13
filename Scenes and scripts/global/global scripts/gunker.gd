@@ -3,7 +3,7 @@ extends Node2D
 @onready var ray_left: RayCast2D = $ray_left
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
-var health = 100
+var health = 110
 var speed = 60
 var direction = 1
 func _process(delta: float) -> void:
