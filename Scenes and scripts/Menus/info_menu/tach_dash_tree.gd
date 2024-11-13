@@ -16,7 +16,7 @@ func _on_tach_dash_skill_icon_pressed() -> void:
 	skill_info = "Skill Info: Dash for a set time \nCooldown: " + str(Global.tach_speed_cooldowns[1]) + "\n"
 	Global.set_skill_info(skill_info)
 	Global.slot_1 = "tach_dash"
-
+	Global.current_skill_in_tree = "tach_dash"
 
 func _on_tach_dash_cooldown_1_pressed() -> void:
 	skill_info = "Skill Info: Decrease cooldown by 10%"

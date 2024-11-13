@@ -82,7 +82,7 @@ func abSlot1():
 			pass
 func abSlot2():
 	if slot_2_cooldown.time_left == 0:
-		if Global.slot_1 == "nano_claw":
+		if Global.slot_2 == "nano_claw":
 			if player.power >= 10:
 				ui.update_power(-10)
 				player.power += -10

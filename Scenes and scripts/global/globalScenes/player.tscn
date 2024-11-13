@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://fty67buyymar" path="res://Scenes and scripts/Menus/ui.tscn" id="6_lktnd"]
 [ext_resource type="Texture2D" uid="uid://caklhguhigutr" path="res://assets/sprites/particles/speed_particle.png" id="7_jphhv"]
 [ext_resource type="Script" path="res://Scenes and scripts/global/global scripts/abilities.gd" id="7_vscgh"]
-[ext_resource type="Texture2D" uid="uid://du7t41mhthrhx" path="res://assets/sprites/blue_ball.png" id="9_7q67p"]
+[ext_resource type="Texture2D" uid="uid://dbjo1maf30mmm" path="res://assets/sprites/claw.png" id="10_dyyo0"]
 [ext_resource type="Texture2D" uid="uid://0yaluvkh50u1" path="res://assets/sprites/particles/hurt_particle.png" id="10_qy1tw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jaigp"]
@@ -636,40 +636,40 @@ color = Color(0.921569, 0.917647, 0.0156863, 1)
 hue_variation_min = -2.23517e-08
 hue_variation_max = 0.17
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ni4y"]
-atlas = ExtResource("9_7q67p")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3tuf"]
+atlas = ExtResource("10_dyyo0")
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7hkxv"]
-atlas = ExtResource("9_7q67p")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jya4b"]
+atlas = ExtResource("10_dyyo0")
+region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kb80h"]
-atlas = ExtResource("9_7q67p")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_63psv"]
+atlas = ExtResource("10_dyyo0")
+region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0rkji"]
-atlas = ExtResource("9_7q67p")
-region = Rect2(96, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvxqh"]
+atlas = ExtResource("10_dyyo0")
+region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gt1vf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2ni4y")
+"texture": SubResource("AtlasTexture_s3tuf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7hkxv")
+"texture": SubResource("AtlasTexture_jya4b")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kb80h")
+"texture": SubResource("AtlasTexture_63psv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0rkji")
+"texture": SubResource("AtlasTexture_uvxqh")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 4.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dakjw"]
@@ -767,6 +767,8 @@ position = Vector2(20, -12)
 scale = Vector2(0.6875, 0.6875)
 sprite_frames = SubResource("SpriteFrames_gt1vf")
 autoplay = "default"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Abilities/nano_claw/nano_claw_collider"]
 position = Vector2(20, -12)

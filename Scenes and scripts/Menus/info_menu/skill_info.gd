@@ -8,8 +8,6 @@ const BUFF = preload("res://Scenes and scripts/Menus/info_menu/nano_buff_tree.ts
 @onready var next_tree_button: Button = $HBoxContainer/NextTreeButton
 @onready var prev_tree_button: Button = $HBoxContainer/PrevTreeButton
 @onready var skill_tree_label: Label = $SkillTreeLabelBackground/SkillTreeLabel
-@onready var skill_info_label: Label = $HBoxContainer/ColorRect/VBoxContainer/MarginContainer/SkillInfoLabel
-@onready var ability_unlock_button: Button = $HBoxContainer/ColorRect/VBoxContainer/AbilityUnlockButton
 var tree_num = 0
 var trees = [SPEED,SLOW,ATTACK,BUFF]
 var tree_labels = ["Tachyon Speed", "Tachyon Slow", "Nano Attack", "Nano Buff"]
@@ -20,7 +18,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	skill_info_label.text = Global.skill_info
+	pass
 
 
 func _on_prev_tree_button_pressed() -> void:
