@@ -8,7 +8,7 @@ var jump_velocity = -400.0
 var speed = 100
 var direction = 0
 var health = 60
-var detect_radius = 100
+var detect_radius = 600
 var player_in_radius = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,7 +17,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if (position.x - Global.player_x) <= detect_radius:
+	if (position.x - Global.player_x) <= detect_radius and (position.x - Global.player_x) >= -detect_radius :
 		player_in_radius = true
 	else:
 		player_in_radius = false
@@ -26,16 +26,18 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if health <=0:
 		queue_free()
+	
 	if is_on_floor():
 		direction = 0
 		animated_sprite_2d.play("idle")
 	else:
-		if Global.player_x > position.x:
-			direction = 1
-		else:
-			direction = -1
-		velocity += get_gravity() * delta
-		animated_sprite_2d.play("jump")
+		if player_in_radius:
+			if Global.player_x > position.x:
+				direction = 1
+			else:
+				direction = -1
+			velocity += get_gravity() * delta
+			animated_sprite_2d.play("jump")
 	
 	if direction:
 		velocity.x = direction * speed

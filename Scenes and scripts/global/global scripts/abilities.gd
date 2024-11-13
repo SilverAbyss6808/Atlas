@@ -4,6 +4,7 @@ extends Node
 @onready var tach_boost_timer: Timer = $tach_boost/tach_boost_timer
 @onready var slot_1_cooldown: Timer = $slot_1_cooldown
 @onready var slot_2_cooldown: Timer = $slot_2_cooldown
+@onready var tach_dash_timer: Timer = $tach_dash/tach_dash_timer
 
 @onready var ui: UI = $"../playerCam/UI"
 @onready var ability_animations: AnimationPlayer = $AbilityAnimations
@@ -15,9 +16,11 @@ extends Node
 
 
 var tach_boost_cooldown = Global.tach_speed_cooldowns[0]
+var tach_dash_cooldown = Global.tach_speed_cooldowns[1]
 var nano_claw_cooldown = Global.nano_attack_cooldowns[0]
-var player_direction = 1
 
+var player_direction = 1
+var dash = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -25,7 +28,7 @@ func _ready() -> void:
 func abSlot1():
 	if slot_1_cooldown.time_left == 0:
 		
-		if player.abSlot1 == "tach_boost":
+		if Global.slot_1 == "tach_boost":
 			if player.tach >= 20:
 				player.tach += -20
 				ui.update_tach(-20)
@@ -33,17 +36,53 @@ func abSlot1():
 				player.speed = 300
 				player.jump_velocity = -400
 				tach_boost_timer.start()
+				ui.slot_1_cooldown.max_value = tach_boost_cooldown
+				slot_1_cooldown.wait_time = tach_boost_cooldown
 				slot_1_cooldown.start()
 				
 			else:
 				pass
 			
-		elif player.abSlot1 == "":
+		elif Global.slot_1 == "tach_dash":
+			if player.tach >= 10:
+				player.tach += -10
+				ui.update_tach(-10)
+				speed_lines.emitting = true
+				player.speed = 600
+				dash = true
+				tach_dash_timer.start()
+				ui.slot_1_cooldown.max_value = tach_dash_cooldown
+				slot_1_cooldown.wait_time = tach_dash_cooldown
+				slot_1_cooldown.start()
+			else:
+				pass
+		elif Global.slot_1 == "slow_shot":
 			pass
-
+		elif Global.slot_1 == "fluid_disruption":
+			pass
+		elif Global.slot_1 == "slow_wave":
+			pass
+		elif Global.slot_1 == "time_stop":
+			pass
+		elif Global.slot_1 == "":
+			pass
+		elif Global.slot_1 == "":
+			pass
+		elif Global.slot_1 == "":
+			pass
+		elif Global.slot_1 == "":
+			pass
+		elif Global.slot_1 == "":
+			pass
+		elif Global.slot_1 == "":
+			pass
+		elif Global.slot_1 == "":
+			pass
+		elif Global.slot_1 == "":
+			pass
 func abSlot2():
 	if slot_2_cooldown.time_left == 0:
-		if player.abSlot2 == "nano_claw":
+		if Global.slot_1 == "nano_claw":
 			if player.power >= 10:
 				ui.update_power(-10)
 				player.power += -10
@@ -52,14 +91,43 @@ func abSlot2():
 				elif player_direction < 0:
 					ability_animations.play("nano_claw_left")
 				nano_claw_timer.start()
+				slot_2_cooldown.wait_time = nano_claw_cooldown
 				slot_2_cooldown.start()
 				
 			else:
 				pass
 			
-		elif player.abSlot2 == "":
+		elif Global.slot_2 == "nano_shot":
 			pass
-			
+		elif Global.slot_2 == "counter":
+			pass
+		elif Global.slot_2 == "discombobulate":
+			pass
+		elif Global.slot_2 == "nano_beam":
+			pass
+		elif Global.slot_2 == "self_destruct":
+			pass
+		elif Global.slot_2 == "":
+			pass
+		elif Global.slot_2 == "":
+			pass
+		elif Global.slot_2 == "":
+			pass
+		elif Global.slot_2 == "":
+			pass
+		elif Global.slot_2 == "":
+			pass
+		elif Global.slot_2 == "":
+			pass
+		elif Global.slot_2 == "":
+			pass
+		elif Global.slot_2 == "":
+			pass
+		elif Global.slot_2 == "":
+			pass
+		elif Global.slot_2 == "":
+			pass
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 
@@ -105,3 +173,7 @@ func _on_tach_boost_timer_timeout() -> void:
 func _on_nano_claw_timer_timeout() -> void:
 	ability_animations.play("RESET")
 	
+func _on_tach_dash_timer_timeout() -> void:
+	speed_lines.emitting = false
+	dash = false
+	player.speed = 130

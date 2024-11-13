@@ -7,9 +7,10 @@ var loading = false
 var skill_info = "Skill Info: "
 var player_x = 0
 var player_y = 0
-
+var slot_1 = ""
+var slot_2 = ""
 #variables for cooldowns of skills, skill name comment by index is by the set function
-var tach_speed_cooldowns = [10,0]
+var tach_speed_cooldowns = [10,.5]
 var tach_slow_cooldowns = [5,0]
 var nano_attack_cooldowns = [.5, 0]
 var nano_buff_cooldowns = [0,0]

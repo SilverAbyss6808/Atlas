@@ -35,6 +35,10 @@ func save():
 	return save_dict
 func _ready() -> void:
 	ui.reload_ui(health, tach, power)
+	Global.slot_1 = abSlot1
+	Global.slot_2 = abSlot2
+	abSlot1 = Global.slot_1
+	abSlot2 = Global.slot_2
 func _physics_process(delta: float) -> void:
 	Global.player_x = position.x
 	Global.player_y = position.y
@@ -52,6 +56,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
 
+
+	
 	
 	var direction := Input.get_axis("left", "right")
 	
@@ -61,7 +67,8 @@ func _physics_process(delta: float) -> void:
 	elif direction < 0:
 		abilities.player_direction = -1
 		animated_sprite.flip_h=true
-	
+	if abilities.dash == true:
+		direction = abilities.player_direction
 	if is_on_floor():
 		if direction == 0 and animated_sprite.animation != "stand_to_sit" and animated_sprite.animation != "sit_to_lay":
 			animated_sprite.play("idle")

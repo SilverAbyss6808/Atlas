@@ -739,6 +739,11 @@ texture = ExtResource("7_jphhv")
 wait_time = 5.0
 one_shot = true
 
+[node name="tach_dash" type="Node" parent="Abilities"]
+
+[node name="tach_dash_timer" type="Timer" parent="Abilities/tach_dash"]
+wait_time = 0.3
+
 [node name="slot_1_cooldown" type="Timer" parent="Abilities"]
 wait_time = 15.0
 one_shot = true
@@ -774,6 +779,7 @@ one_shot = true
 [connection signal="timeout" from="SitTimer" to="." method="_on_sit_timer_timeout"]
 [connection signal="timeout" from="LayTimer" to="." method="_on_lay_timer_timeout"]
 [connection signal="timeout" from="Abilities/tach_boost/tach_boost_timer" to="Abilities" method="_on_tach_boost_timer_timeout"]
+[connection signal="timeout" from="Abilities/tach_dash/tach_dash_timer" to="Abilities" method="_on_tach_dash_timer_timeout"]
 [connection signal="timeout" from="Abilities/slot_1_cooldown" to="Abilities" method="_on_slot_1_cooldown_timeout"]
 [connection signal="timeout" from="Abilities/slot_2_cooldown" to="Abilities" method="_on_slot_2_cooldown_timeout"]
 [connection signal="area_entered" from="Abilities/nano_claw/nano_claw_collider" to="Abilities" method="_on_nano_claw_collider_area_entered"]
