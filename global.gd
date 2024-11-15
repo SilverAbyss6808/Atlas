@@ -15,7 +15,6 @@ var tach_slow_cooldowns = [5,0]
 var nano_attack_cooldowns = [.5, 0]
 var nano_buff_cooldowns = [0,0]
 var current_skill_in_tree = 0
-var unlock_flag = false
 # Called when the node enters the scene tree for the first time.
 func set_prevscene (value):
 	prevscene = value

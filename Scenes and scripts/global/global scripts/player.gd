@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 
-
+@onready var player_cam: Camera2D = $playerCam
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var ui: UI = $playerCam/UI
 @onready var sit_timer: Timer = $SitTimer
@@ -10,6 +10,9 @@ extends CharacterBody2D
 @onready var abilities: Node = $Abilities
 @onready var nano_claw_timer: Timer = $Abilities/nano_claw/nano_claw_timer
 @onready var ability_animations: AnimationPlayer = $Abilities/AbilityAnimations
+@onready var action_detect: Area2D = $ActionDetect
+
+
 
 var jump_velocity = -300.0
 var speed = 130
@@ -33,6 +36,14 @@ func save():
 		"Level" : Global.currentLevel
 	}
 	return save_dict
+
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("interact"):
+		var actionables = action_detect.get_overlapping_areas()
+		if actionables.size() > 0:
+			actionables[0].action()
+			return
+
 func _ready() -> void:
 	ui.reload_ui(health, tach, power)
 	Global.slot_1 = abSlot1

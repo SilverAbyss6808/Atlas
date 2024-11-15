@@ -1,0 +1,153 @@
+[gd_scene load_steps=17 format=3 uid="uid://dho31ng66ibcy"]
+
+[ext_resource type="Texture2D" uid="uid://bjy8rgobmq4do" path="res://assets/sprites/beebo_sheet.png" id="1_wh6p0"]
+[ext_resource type="Script" path="res://Scenes and scripts/Menus/dialogue/beebo_dialogue_sprite.gd" id="2_60kh1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgvo6"]
+atlas = ExtResource("1_wh6p0")
+region = Rect2(228, 0, 114, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3eu0"]
+atlas = ExtResource("1_wh6p0")
+region = Rect2(228, 0, 114, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbnhm"]
+atlas = ExtResource("1_wh6p0")
+region = Rect2(342, 0, 114, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17bd6"]
+atlas = ExtResource("1_wh6p0")
+region = Rect2(0, 0, 114, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4afg"]
+atlas = ExtResource("1_wh6p0")
+region = Rect2(456, 0, 114, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrfrq"]
+atlas = ExtResource("1_wh6p0")
+region = Rect2(456, 0, 114, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tu12j"]
+atlas = ExtResource("1_wh6p0")
+region = Rect2(570, 0, 114, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qbhq"]
+atlas = ExtResource("1_wh6p0")
+region = Rect2(684, 0, 114, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nr7b"]
+atlas = ExtResource("1_wh6p0")
+region = Rect2(684, 0, 114, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kon4h"]
+atlas = ExtResource("1_wh6p0")
+region = Rect2(798, 0, 114, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_357tp"]
+atlas = ExtResource("1_wh6p0")
+region = Rect2(912, 0, 114, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo2d3"]
+atlas = ExtResource("1_wh6p0")
+region = Rect2(912, 0, 114, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnqhq"]
+atlas = ExtResource("1_wh6p0")
+region = Rect2(1026, 0, 114, 110)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ud6ye"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgvo6")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3eu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbnhm")
+}],
+"loop": true,
+"name": &"angry_talk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17bd6")
+}],
+"loop": true,
+"name": &"error",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4afg")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrfrq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tu12j")
+}],
+"loop": true,
+"name": &"happy_talk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qbhq")
+}],
+"loop": true,
+"name": &"neutral",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nr7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kon4h")
+}],
+"loop": true,
+"name": &"neutral_talk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_357tp")
+}],
+"loop": true,
+"name": &"sad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jo2d3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnqhq")
+}],
+"loop": true,
+"name": &"sad_talk",
+"speed": 5.0
+}]
+
+[node name="BeeboDialogueSprite" type="AnimatedSprite2D"]
+position = Vector2(-1, 2)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ud6ye")
+animation = &"neutral_talk"
+autoplay = "neutral"
+frame_progress = 0.766906
+offset = Vector2(60, 90)
+script = ExtResource("2_60kh1")

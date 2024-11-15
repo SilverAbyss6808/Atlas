@@ -1,10 +1,11 @@
-extends HBoxContainer
+extends Node
 
-@onready var threat_indicator: VBoxContainer = $VBoxContainer/ThreatIndicator
-
+var sprite_state = "neutral"
+var character1 = "Atlas"
+var character2 = "Beebo"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	threat_indicator.set_threat_level(4)
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

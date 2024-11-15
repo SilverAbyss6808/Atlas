@@ -9,7 +9,7 @@ class_name TI
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	safe_ind.visible = true
+	safe_ind.visible = false
 	wary_ind.visible = false
 	danger_ind.visible = false
 	high_ind.visible = false

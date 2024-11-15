@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://q4x7ynfm8ad1"]
+
+[ext_resource type="Texture2D" uid="uid://bjy8rgobmq4do" path="res://assets/sprites/beebo_sheet.png" id="1_y3dyq"]
+[ext_resource type="PackedScene" uid="uid://c5mpxupw7gdte" path="res://Scenes and scripts/Menus/dialogue/actionable.tscn" id="2_2k5u0"]
+[ext_resource type="Resource" uid="uid://7rtyvcnoqdmf" path="res://dialogue/main.dialogue" id="3_ybavm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o1xny"]
+radius = 18.0278
+
+[node name="Beebo" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6, -5)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_y3dyq")
+region_enabled = true
+region_rect = Rect2(1140, 0, 57, 55)
+
+[node name="Actionable" parent="." instance=ExtResource("2_2k5u0")]
+dialogue_resource = ExtResource("3_ybavm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable"]
+position = Vector2(3, -2)
+shape = SubResource("CircleShape2D_o1xny")
+debug_color = Color(0.863849, 0.288708, 0.546224, 0.42)

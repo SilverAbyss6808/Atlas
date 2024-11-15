@@ -1,4 +1,8 @@
 class_name DialogueManagerExampleBalloon extends CanvasLayer
+
+@onready var character_1: MarginContainer = $Balloon/HBoxContainer/Character1
+@onready var character_2: MarginContainer = $Balloon/HBoxContainer/Character2
+const BEEBO = preload("res://Scenes and scripts/Menus/dialogue/beebo_dialogue_sprite.tscn")
 ## A basic dialogue balloon for use with Dialogue Manager.
 
 ## The action to use for advancing the dialogue
@@ -86,6 +90,17 @@ var dialogue_line: DialogueLine:
 
 
 func _ready() -> void:
+	if DialogueGlobal.character1 == "Atlas":
+		pass
+	elif DialogueGlobal.character1 == "Atlas":
+		pass
+	
+	if DialogueGlobal.character2 == "Beebo":
+		character_2.add_child(BEEBO.instantiate())
+	elif DialogueGlobal.character2 == "Beebo":
+		pass
+
+
 	balloon.hide()
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
 

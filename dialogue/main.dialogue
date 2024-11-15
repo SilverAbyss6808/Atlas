@@ -1,0 +1,9 @@
+~ Beebo
+set sprite_state = "neutral_talk"
+Beebo: Haiiii
+set sprite_state = "neutral"
+Atlas: ...meow?
+Yib: Hello?
+set sprite_state = "happy_talk"
+Beebo: HI
+=> END

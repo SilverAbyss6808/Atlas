@@ -116,8 +116,8 @@ func _on_ability_unlock_button_pressed() -> void:
 		Global.tach_speed_cooldowns[0] -= (Global.tach_speed_cooldowns[0]*.1)
 
 
-
-
-
 func _on_equip_button_pressed() -> void:
-	pass # Replace with function body.
+	if Global.current_skill_in_tree == 0 and skill_unlock[0]:
+		Global.slot_1 = "tach_boost"
+	else:
+		pass
