@@ -7,21 +7,21 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if DialogueGlobal.sprite_state == "neutral":
+	if DialogueGlobal.sprite_state2 == "neutral":
 		play("neutral")
-	elif DialogueGlobal.sprite_state == "neutral_talk":
+	elif DialogueGlobal.sprite_state2 == "neutral_talk":
 		play("neutral_talk")
-	elif DialogueGlobal.sprite_state == "happy":
+	elif DialogueGlobal.sprite_state2 == "happy":
 		play("happy")
-	elif DialogueGlobal.sprite_state == "happy_talk":
+	elif DialogueGlobal.sprite_state2 == "happy_talk":
 		play("happy_talk")
-	elif DialogueGlobal.sprite_state == "sad":
+	elif DialogueGlobal.sprite_state2 == "sad":
 		play("sad")
-	elif DialogueGlobal.sprite_state == "sad_talk":
+	elif DialogueGlobal.sprite_state2 == "sad_talk":
 		play("sad_talk")
-	elif DialogueGlobal.sprite_state == "angry":
+	elif DialogueGlobal.sprite_state2 == "angry":
 		play("angry")
-	elif DialogueGlobal.sprite_state == "angry_talk":
+	elif DialogueGlobal.sprite_state2 == "angry_talk":
 		play("angry_talk")
-	elif DialogueGlobal.sprite_state == "error":
+	elif DialogueGlobal.sprite_state2 == "error":
 		play("error")

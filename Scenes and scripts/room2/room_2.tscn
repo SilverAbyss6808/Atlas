@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dyvh0ar5wpuci"]
+[gd_scene load_steps=13 format=3 uid="uid://dyvh0ar5wpuci"]
 
 [ext_resource type="Texture2D" uid="uid://cs74umqdxgrm2" path="res://assets/sprites/tiles/Tileset/level_tileset.png" id="1_v177a"]
 [ext_resource type="Script" path="res://Scenes and scripts/room2/room_2.gd" id="1_yg6dx"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://x2a50sqvl1h" path="res://Scenes and scripts/global/globalScenes/door.tscn" id="4_2cyra"]
 [ext_resource type="PackedScene" uid="uid://dcvdchqwm8nr6" path="res://Scenes and scripts/global/globalScenes/Death_plane.tscn" id="5_ix6n2"]
 [ext_resource type="PackedScene" uid="uid://q4x7ynfm8ad1" path="res://Scenes and scripts/global/globalScenes/beebo.tscn" id="6_iaf6t"]
+[ext_resource type="PackedScene" uid="uid://boftf82yrcr1u" path="res://Scenes and scripts/global/globalScenes/scene_transfer.tscn" id="7_csk2r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ab8bd"]
 texture = ExtResource("1_v177a")
@@ -457,6 +458,9 @@ script/source = "extends TileMap
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_luibk"]
 distance = 23.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_csy36"]
+size = Vector2(20, 90)
+
 [node name="Room2" type="Node2D"]
 script = ExtResource("1_yg6dx")
 
@@ -490,3 +494,10 @@ shape = SubResource("WorldBoundaryShape2D_luibk")
 
 [node name="Beebo" parent="." instance=ExtResource("6_iaf6t")]
 position = Vector2(283, -10)
+
+[node name="SceneTransfer" parent="." instance=ExtResource("7_csk2r")]
+position = Vector2(700, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTransfer"]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_csy36")

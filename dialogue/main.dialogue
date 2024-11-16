@@ -1,9 +1,14 @@
 ~ Beebo
-set sprite_state = "neutral_talk"
+set dialogue_active = true
+set sprite_state2 = "neutral_talk"
 Beebo: Haiiii
-set sprite_state = "neutral"
+set sprite_state2 = "neutral"
+set sprite_state1 = "neutral_talk"
 Atlas: ...meow?
 Yib: Hello?
-set sprite_state = "happy_talk"
+set sprite_state1 = "neutral"
+set sprite_state2 = "happy_talk"
 Beebo: HI
+set dialogue_active = false
 => END
+

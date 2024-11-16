@@ -13,13 +13,14 @@ extends CharacterBody2D
 @onready var action_detect: Area2D = $ActionDetect
 
 
-
+#speeds
 var jump_velocity = -300.0
 var speed = 130
-
+#player values
 var health = 100
 var tach = 100
 var power = 100
+#ability slots
 var abSlot1 = "tach_boost"
 var abSlot2 = "nano_claw"
 
@@ -37,6 +38,7 @@ func save():
 	}
 	return save_dict
 
+#check for actionable and start dialogue
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact"):
 		var actionables = action_detect.get_overlapping_areas()
@@ -45,19 +47,29 @@ func _unhandled_input(event: InputEvent) -> void:
 			return
 
 func _ready() -> void:
+	#reload ui
 	ui.reload_ui(health, tach, power)
+	
+	#set global variables for ability slots
 	Global.slot_1 = abSlot1
 	Global.slot_2 = abSlot2
 	abSlot1 = Global.slot_1
 	abSlot2 = Global.slot_2
+	
 func _physics_process(delta: float) -> void:
+	#set global variables for position
 	Global.player_x = position.x
 	Global.player_y = position.y
-	
+	#reload ui
 	ui.reload_ui(health, tach, power)
+	
+	
+	
+	#kill player if health <= 0
 	if ui.health <= 0:
 		print("dead")
 		get_tree().reload_current_scene()
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -69,17 +81,21 @@ func _physics_process(delta: float) -> void:
 
 
 	
-	
+	#get direction based on input right and left
 	var direction := Input.get_axis("left", "right")
 	
+	#flip sprite based on direction and set direction for abilities script
 	if direction > 0:
 		abilities.player_direction = 1
 		animated_sprite.flip_h=false
 	elif direction < 0:
 		abilities.player_direction = -1
 		animated_sprite.flip_h=true
+	#active for tach_dash
 	if abilities.dash == true:
 		direction = abilities.player_direction
+	
+	#animation players
 	if is_on_floor():
 		if direction == 0 and animated_sprite.animation != "stand_to_sit" and animated_sprite.animation != "sit_to_lay":
 			animated_sprite.play("idle")
@@ -87,6 +103,8 @@ func _physics_process(delta: float) -> void:
 			animated_sprite.play("run")
 	else: 
 		animated_sprite.play("jump")
+	
+	#move player based on direction
 	if direction:
 		velocity.x = direction * speed
 	else:
@@ -102,13 +120,17 @@ func blue_ball():
 func yellow_ball():
 	power += 10
 	ui.update_power(10)
+
+#set player and ui health
 func set_health(value):
 	health += value
 	ui.update_health(value)
-	
+
+#sit animation timer
 func _on_sit_timer_timeout() -> void:
 	animated_sprite.play("stand_to_sit")
 	lay_timer.start()
 
+#lay animation timer
 func _on_lay_timer_timeout() -> void:
 	animated_sprite.play("sit_to_lay")

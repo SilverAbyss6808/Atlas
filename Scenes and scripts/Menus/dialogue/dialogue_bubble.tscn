@@ -64,6 +64,7 @@ MarginContainer/constants/margin_top = 15
 Panel/styles/panel = SubResource("StyleBoxFlat_uy0d5")
 
 [node name="DialogueBubble" type="CanvasLayer"]
+process_mode = 2
 layer = 100
 script = ExtResource("1_phocr")
 
@@ -86,7 +87,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Character1" type="MarginContainer" parent="Balloon/HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="Balloon/HBoxContainer"]
+layout_mode = 2
+
+[node name="Character1" type="MarginContainer" parent="Balloon/HBoxContainer/PanelContainer"]
 custom_minimum_size = Vector2(250, 300)
 layout_mode = 2
 
@@ -125,7 +129,10 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Dialogue..."
 
-[node name="Character2" type="MarginContainer" parent="Balloon/HBoxContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="Balloon/HBoxContainer"]
+layout_mode = 2
+
+[node name="Character2" type="MarginContainer" parent="Balloon/HBoxContainer/PanelContainer2"]
 custom_minimum_size = Vector2(250, 300)
 layout_mode = 2
 

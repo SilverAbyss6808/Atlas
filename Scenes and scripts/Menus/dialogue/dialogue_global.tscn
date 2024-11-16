@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://Scenes and scripts/Menus/dialogue/dialogue_global.gd" id="1_4cnbt"]
 
 [node name="DialogueGlobal" type="Node"]
+process_mode = 3
 script = ExtResource("1_4cnbt")

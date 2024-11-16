@@ -7,7 +7,6 @@ const Balloon = preload("res://Scenes and scripts/Menus/dialogue/dialogue_bubble
 
 
 func action() -> void:
-	print("hi")
 	var balloon: Node = Balloon.instantiate()
 	get_tree().current_scene.add_child(balloon)
 	balloon.start(dialogue_resource,dialogue_start)

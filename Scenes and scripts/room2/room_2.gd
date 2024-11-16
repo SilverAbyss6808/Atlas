@@ -2,10 +2,12 @@ extends Node2D
 @onready var player: CharacterBody2D = %player
 @onready var door: StaticBody2D = $Door
 @onready var door_2: StaticBody2D = $Door2
+@onready var scene_transfer: Area2D = $SceneTransfer
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	scene_transfer.fade_out()
 	player.player_cam.limit_left = -200
 	door.close()
 	door_2.close()
@@ -13,6 +15,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if player.position.x >= -10:
 		player.player_cam.limit_left = -10000000
+	
+	#if dialogue is active pause game
 	
 	
 	if door.player_in_radius:
