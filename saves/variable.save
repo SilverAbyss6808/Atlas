@@ -1,1 +1,1 @@
-{"Level":"res://Scenes and scripts/room1/scenes/room_1.tscn","filename":"res://Scenes and scripts/global/globalScenes/player.tscn","health":40,"parent":"/root/Room1","pos_x":618.259460449219,"pos_y":-45.0748138427734,"power":50,"tach":40}
+{"Level":"","filename":"res://Scenes and scripts/global/globalScenes/global.tscn","nano_attack_cooldowns":[0.5,0],"nano_buff_cooldowns":[0,0],"parent":"/root","slot_1":"","slot_2":"","tach_slow_cooldowns":[5,0],"tach_speed_cooldowns":[10,0.5]}

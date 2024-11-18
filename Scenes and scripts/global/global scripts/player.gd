@@ -29,17 +29,15 @@ func save():
 	var save_dict = {
 		"filename" : get_scene_file_path(),
 		"parent" : get_parent().get_path(),
-		"pos_x" : position.x, 
-		"pos_y" : position.y,
 		"health": health,
 		"tach" :  tach,
 		"power": power,
-		"Level" : Global.currentLevel
+		
 	}
 	return save_dict
 
 #check for actionable and start dialogue
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact"):
 		var actionables = action_detect.get_overlapping_areas()
 		if actionables.size() > 0:
@@ -114,12 +112,20 @@ func _physics_process(delta: float) -> void:
 
 
 func blue_ball():
-	health += 10
-	ui.update_health(10)
+	if health >= 90:
+		health += (100-health)
+		ui.update_health(100-health)
+	else:
+		health += 10
+		ui.update_health(10)
 
 func yellow_ball():
-	power += 10
-	ui.update_power(10)
+	if tach >= 90:
+		tach += (100-tach)
+		ui.update_tach(100-tach)
+	else:
+		tach += 10
+		ui.update_tach(10)
 
 #set player and ui health
 func set_health(value):

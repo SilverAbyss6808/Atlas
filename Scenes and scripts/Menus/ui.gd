@@ -22,7 +22,7 @@ var slot1_cool = 10
 var slot2_cool = 10
 var ability1_time = 5
 var ability2_time = .3
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#slot_1_cooldown_bar.value = slot1_cool
 	#slot_2_cooldown_bar.value = slot2_cool
 	ability_1_bar.value = ability1_time

@@ -131,7 +131,7 @@ func abSlot2():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	ui.slot1_cool = slot_1_cooldown.time_left
 	ui.slot2_cool = slot_2_cooldown.time_left
 	ui.ability1_time = tach_boost_timer.time_left

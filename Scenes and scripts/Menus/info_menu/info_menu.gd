@@ -9,7 +9,7 @@ extends CanvasLayer
 @onready var info_container: MarginContainer = $MarginContainer/VBoxContainer/InfoContainerBackground/InfoContainer
 
 const SKILL = preload("res://Scenes and scripts/Menus/info_menu/skill_info.tscn")
-const ENCYCLOPEDIA = preload("res://Scenes and scripts/Menus/info_menu/EN_menu/encyclopedia.tscn")
+const ENCYCLOPEDIA = preload("res://Scenes and scripts/Menus/info_menu/en_menu/encyclopedia.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	skill_info_button.grab_focus()
@@ -17,9 +17,9 @@ func _ready() -> void:
 	info_container.add_child(skill_info)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("info_menu"):
-		get_tree().paused = false
+		Global.paused = false
 		queue_free()
 	
 

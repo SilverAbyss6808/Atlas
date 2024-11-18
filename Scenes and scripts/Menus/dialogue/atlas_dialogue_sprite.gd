@@ -7,7 +7,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if DialogueGlobal.sprite_state1 == "neutral":
 		play("neutral")
 	elif DialogueGlobal.sprite_state1 == "neutral_talk":

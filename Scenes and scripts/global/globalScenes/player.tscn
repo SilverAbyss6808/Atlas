@@ -678,6 +678,7 @@ radius = 5.09902
 [sub_resource type="CircleShape2D" id="CircleShape2D_2jolf"]
 
 [node name="player" type="CharacterBody2D" groups=["Persist"]]
+process_mode = 1
 z_index = 5
 collision_layer = 16
 script = ExtResource("1_3a1r7")

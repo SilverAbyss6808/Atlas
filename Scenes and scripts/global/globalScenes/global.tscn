@@ -2,6 +2,6 @@
 
 [ext_resource type="Script" path="res://global.gd" id="1_tyycy"]
 
-[node name="Global" type="Node"]
+[node name="Global" type="Node" groups=["Persist"]]
 process_mode = 3
 script = ExtResource("1_tyycy")

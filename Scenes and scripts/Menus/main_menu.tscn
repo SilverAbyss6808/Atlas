@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://f2o7lfpkf5a1" path="res://assets/Images/main_image.jpg" id="3_ydtty"]
 
 [node name="Main_menu" type="Control"]
+process_mode = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

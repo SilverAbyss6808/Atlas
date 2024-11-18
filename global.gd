@@ -9,6 +9,8 @@ var player_x = 0
 var player_y = 0
 var slot_1 = ""
 var slot_2 = ""
+var paused: bool
+var prev = true
 #variables for cooldowns of skills, skill name comment by index is by the set function
 var tach_speed_cooldowns = [10,.5]
 var tach_slow_cooldowns = [5,0]
@@ -16,6 +18,20 @@ var nano_attack_cooldowns = [.5, 0]
 var nano_buff_cooldowns = [0,0]
 var current_skill_in_tree = 0
 # Called when the node enters the scene tree for the first time.
+
+func save():
+	var save_dict = {
+		"filename" : get_scene_file_path(),
+		"parent" : get_parent().get_path(),
+		"Level" : currentLevel,
+		"slot_1": slot_1,
+		"slot_2": slot_2,
+		"tach_speed_cooldowns": tach_speed_cooldowns,
+		"tach_slow_cooldowns": tach_slow_cooldowns,
+		"nano_attack_cooldowns": nano_attack_cooldowns,
+		"nano_buff_cooldowns": nano_buff_cooldowns
+	}
+	return save_dict
 func set_prevscene (value):
 	prevscene = value
 
@@ -76,12 +92,18 @@ func load_game():
 				continue
 			new_object.set(i, node_data[i])
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _process(_delta: float) -> void:
+	if prev != paused:
+		print("Is paused: " + str(paused))
+	if paused == true:
+		get_tree().paused = true
+	else:
+		get_tree().paused = false
+	prev = paused
 
 func set_skill_info(value: String):
 	skill_info = value
-#tachspeed skill order: tach_boost
+#tachspeed skill order: tach_boost, tach_dash
 #tachslow skill order:
 #nanoattack skill order: nano_claw
 #nanobuff skill order:

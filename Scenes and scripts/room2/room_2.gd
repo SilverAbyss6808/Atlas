@@ -8,11 +8,12 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	scene_transfer.fade_out()
+	scene_transfer.set_scene("res://Scenes and scripts/room1/scenes/room_1.tscn")
 	player.player_cam.limit_left = -200
 	door.close()
 	door_2.close()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if player.position.x >= -10:
 		player.player_cam.limit_left = -10000000
 	

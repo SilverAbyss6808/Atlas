@@ -20,7 +20,7 @@ func _on_new_game_button_pressed() -> void:
 func _on_options_button_pressed() -> void:
 	var options_menu = OPTIONS.instantiate()
 	add_child(options_menu)
-	get_tree().paused = true
+	Global.paused = true
 
 
 func _on_quit_button_pressed() -> void:

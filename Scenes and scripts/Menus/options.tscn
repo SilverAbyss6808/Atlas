@@ -15,7 +15,7 @@ bg_color = Color(0.313726, 0.388235, 0.764706, 0.686275)
 
 [node name="Options" type="CanvasLayer"]
 process_mode = 2
-layer = 3
+layer = 5
 script = ExtResource("1_ns6s4")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

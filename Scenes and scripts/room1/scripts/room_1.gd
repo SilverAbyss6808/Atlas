@@ -9,24 +9,23 @@ const PAUSE = preload("res://Scenes and scripts/Menus/pause_menu.tscn")
 const INFO = preload("res://Scenes and scripts/Menus/info_menu/info_menu.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
 	scene_transfer.set_scene("res://Scenes and scripts/room2/room_2.tscn")
 	scene_transfer.loading_screen()
 	loading_screen_timer.start()
 func pause():
-	get_tree().paused = true
+	Global.paused = true
 	var pause_menu = PAUSE.instantiate()
 	add_child(pause_menu)
 
 func info_menu():
-	get_tree().paused = true
-	var info_menu = INFO.instantiate()
-	add_child(info_menu)
+	Global.paused = true
+	add_child(INFO.instantiate())
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	
 	if Global.loading:
 		Global.load_game()
-		Global.set_currentLevel("res://Scenes and scripts/room1/scenes/room_1.tscn")
+		get_tree().change_scene_to_file(Global.currentLevel)
 	Global.loading = false
 	if Input.is_action_just_pressed("pause"):
 		pause()

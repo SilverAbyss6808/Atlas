@@ -12,7 +12,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func open():
@@ -27,12 +27,12 @@ func close():
 		animated_sprite_2d.play("closed")
 
 
-func _on_player_detect_radius_body_entered(body: Node2D) -> void:
+func _on_player_detect_radius_body_entered(_body: Node2D) -> void:
 	animation_player.play("popup")
 	print(animation_player.is_playing())
 	player_in_radius = true
 
 
-func _on_player_detect_radius_body_exited(body: Node2D) -> void:
+func _on_player_detect_radius_body_exited(_body: Node2D) -> void:
 	animation_player.play("RESET")
 	player_in_radius = false

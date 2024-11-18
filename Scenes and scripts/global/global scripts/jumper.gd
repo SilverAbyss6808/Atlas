@@ -16,7 +16,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if (position.x - Global.player_x) <= detect_radius and (position.x - Global.player_x) >= -detect_radius :
 		player_in_radius = true
 	else:
@@ -55,5 +55,5 @@ func _on_player_collider_body_entered(body: Node2D) -> void:
 	print("colliding")
 	body.set_health(-10)
 
-func _on_hit_area_entered(area: Area2D) -> void:
+func _on_hit_area_entered(_area: Area2D) -> void:
 	health += -50

@@ -15,6 +15,7 @@ func save():
 	}
 	return save_dict
 func _on_body_entered(body: Node2D) -> void:
+	print("shsba")
 	if touched == false:
 		animation_player.play("die")
 		Engine.time_scale += -.1

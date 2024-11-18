@@ -25,6 +25,6 @@ func _on_sound_options_button_pressed() -> void:
 
 func _on_return_button_pressed() -> void:
 	if get_parent().get_scene_file_path() == "res://Scenes and scripts/Menus/main_menu.tscn":
-		get_tree().paused = false
+		Global.paused = false
 	queue_free()
 	

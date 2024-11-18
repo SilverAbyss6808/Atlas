@@ -21,5 +21,5 @@ func _on_main_collider_body_entered(body: Node2D) -> void:
 	body.set_health(-20)
 
 
-func _on_hit_collider_area_entered(area: Area2D) -> void:
+func _on_hit_collider_area_entered(_area: Area2D) -> void:
 	health += -50

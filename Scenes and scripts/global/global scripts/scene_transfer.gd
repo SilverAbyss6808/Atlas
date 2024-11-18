@@ -4,17 +4,17 @@ extends Area2D
 @onready var timer_2: Timer = $Timer2
 
 var scene = ""
-
 func _ready() -> void:
 	transition_mask.visible = false
 	
 
 func set_scene(value: String):
 	scene = value
-	
+	Global.currentLevel = scene
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
+	Global.save_game()
 	if scene != "":
 		timer.start()
 		fade_in()
@@ -24,17 +24,14 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 
 func fade_in():
-	get_tree().paused = true
 	transition_mask.visible = true
 	transition_mask.animation(1)
 	
 func fade_out():
-	get_tree().paused = false
 	transition_mask.visible = true
 	transition_mask.animation(2)
 	
 func loading_screen():
-	get_tree().paused = true
 	transition_mask.visible = true
 	transition_mask.animation(3)
 
