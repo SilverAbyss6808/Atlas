@@ -35,15 +35,6 @@ func _process(_delta: float) -> void:
 	
 	#slot_1_cooldown_label.text = "Slot 1: " + str(round(slot1_cool)) + "sec"
 	#slot_2_cooldown_label.text = "Slot 2: " + str(round(slot2_cool)) + "sec"
-func save():
-	var save_dict = {
-		"filename" : get_scene_file_path(),
-		"parent" : get_parent().get_path(),
-		"health": health,
-		"tach" :  tach,
-		"power": power
-	}
-	return save_dict
 func update_health (value):
 	health += value
 	health_label.text = "Health: " + str(health)

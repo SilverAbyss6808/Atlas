@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://q4x7ynfm8ad1" path="res://Scenes and scripts/global/globalScenes/beebo.tscn" id="6_iaf6t"]
 [ext_resource type="PackedScene" uid="uid://boftf82yrcr1u" path="res://Scenes and scripts/global/globalScenes/scene_transfer.tscn" id="7_csk2r"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ab8bd"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_retta"]
 texture = ExtResource("1_v177a")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -447,7 +447,7 @@ texture = ExtResource("1_v177a")
 
 [sub_resource type="TileSet" id="TileSet_04vjp"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_ab8bd")
+sources/0 = SubResource("TileSetAtlasSource_retta")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_luibk"]
 distance = 23.0

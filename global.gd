@@ -7,6 +7,9 @@ var loading = false
 var skill_info = "Skill Info: "
 var player_x = 0
 var player_y = 0
+var p_health = 100
+var p_power = 100
+var p_tach = 100
 var slot_1 = ""
 var slot_2 = ""
 var paused: bool
@@ -19,21 +22,7 @@ var nano_buff_cooldowns = [0,0]
 var current_skill_in_tree = 0
 # Called when the node enters the scene tree for the first time.
 
-func save():
-	var save_dict = {
-		"filename" : get_scene_file_path(),
-		"parent" : get_parent().get_path(),
-		"Level" : currentLevel,
-		"slot_1": slot_1,
-		"slot_2": slot_2,
-		"tach_speed_cooldowns": tach_speed_cooldowns,
-		"tach_slow_cooldowns": tach_slow_cooldowns,
-		"nano_attack_cooldowns": nano_attack_cooldowns,
-		"nano_buff_cooldowns": nano_buff_cooldowns
-	}
-	return save_dict
-func set_prevscene (value):
-	prevscene = value
+
 
 func set_currentLevel (value):
 	currentLevel = value
@@ -83,8 +72,7 @@ func load_game():
 		# Firstly, we need to create the object and add it to the tree and set its position.
 		var new_object = load(node_data["filename"]).instantiate()
 		get_node(node_data["parent"]).add_child(new_object)
-		if (node_data["filename"] != "res://Scenes and scripts/Menus/ui.tscn"):
-			new_object.position = Vector2(node_data["pos_x"], node_data["pos_y"])
+		new_object.position = Vector2(node_data["pos_x"], node_data["pos_y"])
 
 		# Now we set the remaining variables.
 		for i in node_data.keys():
@@ -93,13 +81,10 @@ func load_game():
 			new_object.set(i, node_data[i])
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if prev != paused:
-		print("Is paused: " + str(paused))
 	if paused == true:
 		get_tree().paused = true
 	else:
 		get_tree().paused = false
-	prev = paused
 
 func set_skill_info(value: String):
 	skill_info = value

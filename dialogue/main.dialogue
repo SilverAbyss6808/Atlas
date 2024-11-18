@@ -10,5 +10,6 @@ set sprite_state1 = "neutral"
 set sprite_state2 = "happy_talk"
 Beebo: HI
 set dialogue_active = false
+set dialogue_end = true
 => END
 

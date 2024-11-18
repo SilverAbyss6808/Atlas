@@ -12,6 +12,7 @@ func _ready() -> void:
 	player.player_cam.limit_left = -200
 	door.close()
 	door_2.close()
+	player.reload_values()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if player.position.x >= -10:

@@ -13,9 +13,12 @@ func set_scene(value: String):
 	Global.currentLevel = scene
 
 
-func _on_body_entered(_body: Node2D) -> void:
-	Global.save_game()
+func _on_body_entered(body: Node2D) -> void:
+	Global.p_health = body.health
+	Global.p_tach = body.tach
+	Global.p_power = body.power
 	if scene != "":
+		Global.currentLevel = scene
 		timer.start()
 		fade_in()
 		return
@@ -42,3 +45,4 @@ func _on_timer_timeout() -> void:
 
 func _on_timer_2_timeout() -> void:
 	get_tree().change_scene_to_file(scene)
+	Global.save_game()

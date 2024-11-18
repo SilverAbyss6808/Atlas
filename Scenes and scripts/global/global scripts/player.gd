@@ -20,6 +20,7 @@ var speed = 130
 var health = 100
 var tach = 100
 var power = 100
+var level: String
 #ability slots
 var abSlot1 = "tach_boost"
 var abSlot2 = "nano_claw"
@@ -32,7 +33,7 @@ func save():
 		"health": health,
 		"tach" :  tach,
 		"power": power,
-		
+		"level": level
 	}
 	return save_dict
 
@@ -55,6 +56,7 @@ func _ready() -> void:
 	abSlot2 = Global.slot_2
 	
 func _physics_process(delta: float) -> void:
+	Global.currentLevel = get_tree().current_scene
 	#set global variables for position
 	Global.player_x = position.x
 	Global.player_y = position.y
@@ -140,3 +142,8 @@ func _on_sit_timer_timeout() -> void:
 #lay animation timer
 func _on_lay_timer_timeout() -> void:
 	animated_sprite.play("sit_to_lay")
+
+func reload_values():
+	health = Global.p_health
+	tach = Global.p_tach
+	power = Global.p_power
