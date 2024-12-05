@@ -48,3 +48,14 @@ func reload_ui(value1, value2, value3):
 	health_label.text = "Health: " + str(value1)
 	tach_label.text = "Tachyon: " + str(value2)
 	power_label.text = "Power: " + str(value3)
+
+func set_bar_max(value: String, value2: int):
+	if value == "health":
+		health_bar.max_value = value2
+	elif value == "tach":
+		tach_bar.max_value = value2
+	elif value == "power":
+		power_bar.max_value = value2
+	else:
+		print("error incorrect bar name")
+		pass

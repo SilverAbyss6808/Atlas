@@ -5,6 +5,7 @@ var loading = false
 var skill_info = "Skill Info: "
 var player_x = 0
 var player_y = 0
+var player_max = [100,100,100]
 var p_health = 100
 var p_power = 100
 var p_tach = 100

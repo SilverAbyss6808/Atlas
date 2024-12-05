@@ -59,6 +59,9 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	#set global variables for position
+	ui.set_bar_max("health", Global.player_max[0])
+	ui.set_bar_max("tach", Global.player_max[1])
+	ui.set_bar_max("power", Global.player_max[2])
 	Global.player_x = position.x
 	Global.player_y = position.y
 	#reload ui

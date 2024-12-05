@@ -1,1 +1,1 @@
-{"filename":"res://Scenes and scripts/global/globalScenes/player.tscn","health":100,"level":"res://Scenes and scripts/room3/room_3.tscn","parent":"/root/room3","pos_x":-295,"pos_y":2,"power":100,"tach":100}
+{"filename":"res://Scenes and scripts/global/globalScenes/player.tscn","health":100,"level":"res://Scenes and scripts/room1/scenes/room_1.tscn","parent":"/root/Room1","pos_x":3,"pos_y":16,"power":100,"tach":100}
