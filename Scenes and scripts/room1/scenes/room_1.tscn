@@ -476,24 +476,24 @@ tile_set = SubResource("TileSet_o16o1")
 
 [node name="player" parent="." instance=ExtResource("7_la81l")]
 unique_name_in_owner = true
-position = Vector2(-9, 17)
+position = Vector2(3, 16)
 
 [node name="hitables" type="Node" parent="."]
 
 [node name="blue" type="Node" parent="hitables"]
 
-[node name="BlueBall" parent="hitables/blue" groups=["Persist"] instance=ExtResource("4_sd7u6")]
+[node name="BlueBall" parent="hitables/blue" instance=ExtResource("4_sd7u6")]
 position = Vector2(164, 12)
 
-[node name="BlueBall2" parent="hitables/blue" groups=["Persist"] instance=ExtResource("4_sd7u6")]
+[node name="BlueBall2" parent="hitables/blue" instance=ExtResource("4_sd7u6")]
 position = Vector2(551, -52)
 
 [node name="yellow" type="Node" parent="hitables"]
 
-[node name="yellowball" parent="hitables/yellow" groups=["Persist"] instance=ExtResource("5_ny08b")]
+[node name="yellowball" parent="hitables/yellow" instance=ExtResource("5_ny08b")]
 position = Vector2(190, 12)
 
-[node name="yellowball2" parent="hitables/yellow" groups=["Persist"] instance=ExtResource("5_ny08b")]
+[node name="yellowball2" parent="hitables/yellow" instance=ExtResource("5_ny08b")]
 position = Vector2(526, -53)
 
 [node name="death_plane" parent="." instance=ExtResource("6_u6jjq")]

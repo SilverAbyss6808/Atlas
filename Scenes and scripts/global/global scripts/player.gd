@@ -20,7 +20,7 @@ var speed = 130
 var health = 100
 var tach = 100
 var power = 100
-var level: String
+var level = ""
 #ability slots
 var abSlot1 = "tach_boost"
 var abSlot2 = "nano_claw"
@@ -30,10 +30,12 @@ func save():
 	var save_dict = {
 		"filename" : get_scene_file_path(),
 		"parent" : get_parent().get_path(),
+		"pos_x" : position.x,
+		"pos_y" : position.y,
 		"health": health,
 		"tach" :  tach,
+		"level": level,
 		"power": power,
-		"level": level
 	}
 	return save_dict
 
@@ -56,7 +58,6 @@ func _ready() -> void:
 	abSlot2 = Global.slot_2
 	
 func _physics_process(delta: float) -> void:
-	Global.currentLevel = get_tree().current_scene
 	#set global variables for position
 	Global.player_x = position.x
 	Global.player_y = position.y

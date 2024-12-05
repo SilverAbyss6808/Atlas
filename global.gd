@@ -1,7 +1,5 @@
 extends Node
 
-var prevscene = ""
-var currentLevel = ""
 var save_path = "res://saves/variable.save"
 var loading = false
 var skill_info = "Skill Info: "
@@ -14,6 +12,7 @@ var slot_1 = ""
 var slot_2 = ""
 var paused: bool
 var prev = true
+var room_loaded = false
 #variables for cooldowns of skills, skill name comment by index is by the set function
 var tach_speed_cooldowns = [10,.5]
 var tach_slow_cooldowns = [5,0]
@@ -23,9 +22,24 @@ var current_skill_in_tree = 0
 # Called when the node enters the scene tree for the first time.
 
 
+func load_level():
+	var save_file = FileAccess.open(Global.save_path, FileAccess.READ)
+	while save_file.get_position() < save_file.get_length():
+		var json_string = save_file.get_line()
 
-func set_currentLevel (value):
-	currentLevel = value
+		# Creates the helper class to interact with JSON.
+		var json = JSON.new()
+
+		# Check if there is any error while parsing the JSON string, skip in case of failure.
+		var parse_result = json.parse(json_string)
+		if not parse_result == OK:
+			print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
+			continue
+
+		# Get the data from the JSON object.
+		var node_data = json.data
+		
+		get_tree().change_scene_to_file(node_data["level"])
 func save_game():
 	var save_file = FileAccess.open(Global.save_path, FileAccess.WRITE)
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
@@ -68,7 +82,7 @@ func load_game():
 
 		# Get the data from the JSON object.
 		var node_data = json.data
-
+		print(node_data)
 		# Firstly, we need to create the object and add it to the tree and set its position.
 		var new_object = load(node_data["filename"]).instantiate()
 		get_node(node_data["parent"]).add_child(new_object)

@@ -2,16 +2,19 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var player_collider: Area2D = $PlayerCollider
 @onready var jump_timer: Timer = $JumpTimer
+@onready var health_bar: ProgressBar = $HealthBar
 
 
 var jump_velocity = -400.0
 var speed = 100
 var direction = 0
 var health = 60
-var detect_radius = 600
+var detect_radius = 200
 var player_in_radius = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	health_bar.set_max_health(health)
+	health_bar.add_health(health)
 	jump_timer.start()
 
 
@@ -56,4 +59,5 @@ func _on_player_collider_body_entered(body: Node2D) -> void:
 	body.set_health(-10)
 
 func _on_hit_area_entered(_area: Area2D) -> void:
+	health_bar.sub_health(50)
 	health += -50

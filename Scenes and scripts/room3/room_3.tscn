@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=4 uid="uid://c1ewor56q12hh"]
+[gd_scene load_steps=11 format=4 uid="uid://c1ewor56q12hh"]
 
+[ext_resource type="Script" path="res://Scenes and scripts/room3/room_3.gd" id="1_64hqq"]
 [ext_resource type="Texture2D" uid="uid://cs74umqdxgrm2" path="res://assets/sprites/tiles/Tileset/level_tileset.png" id="1_vr0gd"]
 [ext_resource type="PackedScene" uid="uid://bqlk71kugsjfs" path="res://Scenes and scripts/global/globalScenes/player.tscn" id="2_s50iy"]
 [ext_resource type="PackedScene" uid="uid://dcvdchqwm8nr6" path="res://Scenes and scripts/global/globalScenes/Death_plane.tscn" id="3_s5bbl"]
@@ -454,6 +455,7 @@ distance = 23.0
 size = Vector2(20, 55)
 
 [node name="room3" type="Node2D"]
+script = ExtResource("1_64hqq")
 
 [node name="Mid" type="TileMapLayer" parent="."]
 use_parent_material = true

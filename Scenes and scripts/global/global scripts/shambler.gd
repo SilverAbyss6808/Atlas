@@ -107,7 +107,6 @@ func _on_search_timer_timeout() -> void:
 
 func _on_test_timer_timeout() -> void:
 	print(state)
-	print("Player pos: " + str(Global.player_x) + "\nInital p: " + str(inital))
 	if state == "searching" and timer_check == 0:
 		timer_check = 1
 		search_timer.start()

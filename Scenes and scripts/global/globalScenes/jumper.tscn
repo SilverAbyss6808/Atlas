@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bh1c7p7bhjmbl"]
+[gd_scene load_steps=11 format=3 uid="uid://bh1c7p7bhjmbl"]
 
 [ext_resource type="Script" path="res://Scenes and scripts/global/global scripts/jumper.gd" id="1_3o3q0"]
 [ext_resource type="Texture2D" uid="uid://cb42xqp2i8esw" path="res://assets/sprites/jumper.png" id="1_narmh"]
+[ext_resource type="PackedScene" uid="uid://b5urr65dmlp8h" path="res://Scenes and scripts/global/globalScenes/health_bar.tscn" id="3_kd86f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a23oi"]
 
@@ -78,6 +79,12 @@ collision_mask = 16
 z_index = -1
 position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_lbr3h")
+
+[node name="HealthBar" parent="." instance=ExtResource("3_kd86f")]
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 105.0
+offset_bottom = -5.0
 
 [connection signal="area_entered" from="Hit" to="." method="_on_hit_area_entered"]
 [connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]

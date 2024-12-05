@@ -121,6 +121,33 @@ radius = 31.1448
 [sub_resource type="CircleShape2D" id="CircleShape2D_jxta0"]
 radius = 144.056
 
+[sub_resource type="Animation" id="Animation_p2c2h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DetectArea:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DetectArea:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_57132"]
 resource_name = "idle"
 tracks/0/type = "value"
@@ -162,32 +189,11 @@ tracks/2/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_p2c2h"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DetectArea:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("DetectArea:monitoring")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
+[sub_resource type="Animation" id="Animation_kj2c5"]
+resource_name = "left_detect"
+
+[sub_resource type="Animation" id="Animation_r48b4"]
+resource_name = "right_detect"
 
 [sub_resource type="Animation" id="Animation_umqc3"]
 resource_name = "searching"
@@ -230,12 +236,6 @@ tracks/2/keys = {
 "method": &"open_eye"
 }]
 }
-
-[sub_resource type="Animation" id="Animation_r48b4"]
-resource_name = "right_detect"
-
-[sub_resource type="Animation" id="Animation_kj2c5"]
-resource_name = "left_detect"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hs1tx"]
 _data = {

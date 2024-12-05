@@ -3,22 +3,19 @@ extends Area2D
 @onready var transition_mask: CanvasLayer = $TransitionMask
 @onready var timer_2: Timer = $Timer2
 
-var scene = ""
+var scene: String
 func _ready() -> void:
 	transition_mask.visible = false
 	
 
 func set_scene(value: String):
 	scene = value
-	Global.currentLevel = scene
-
 
 func _on_body_entered(body: Node2D) -> void:
 	Global.p_health = body.health
 	Global.p_tach = body.tach
 	Global.p_power = body.power
 	if scene != "":
-		Global.currentLevel = scene
 		timer.start()
 		fade_in()
 		return
@@ -45,4 +42,3 @@ func _on_timer_timeout() -> void:
 
 func _on_timer_2_timeout() -> void:
 	get_tree().change_scene_to_file(scene)
-	Global.save_game()
